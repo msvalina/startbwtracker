@@ -191,7 +191,7 @@
         "notes": "one arm push test"
     },
     {
-        "datetime": "2015-04-15T19:43:22.222Z",
+        "datetime": "2015-04-17T19:53:22.222Z",
         "prg_id": 22,
         "usr_id": 1,
         "goal": 554,
@@ -199,5 +199,60 @@
         "repeat": true,
         "next_progression": false,
         "notes": "sternum, umorannn"
+    },
+    {
+        "datetime": "2015-04-20T18:30:42.222Z",
+        "prg_id": 22,
+        "prg_name": "Sternum Pull Ups",
+        "usr_id": 1,
+        "goal": 554,
+        "performed": 554,
+        "repeat": false,
+        "next_progression": false,
+        "notes": "bam bam"
+    },
+    {
+        "datetime": "2015-04-20T18:36:42.222Z",
+        "prg_id": 36,
+        "prg_name": "Wall Half Handstand Push Ups",
+        "usr_id": 1,
+        "goal": 877,
+        "performed": 877,
+        "repeat": false,
+        "next_progression": false,
+        "notes": "not bad, not bad"
+    },
+    {
+        "datetime": "2015-04-20T18:40:42.222Z",
+        "prg_id": 49,
+        "prg_name": "Hanging Straight Leg V Raises",
+        "usr_id": 1,
+        "goal": 888,
+        "performed": 888,
+        "repeat": false,
+        "next_progression": true,
+        "notes": "htio jos jednom potvrdit da mogu!!! badassss"
+    },
+    {
+        "datetime": "2015-04-20T18:45:42.222Z",
+        "prg_id": 65,
+        "prg_name": "Incline One Arm Push Ups",
+        "usr_id": 1,
+        "goal": 666,
+        "performed": 666,
+        "repeat": false,
+        "next_progression": false,
+        "notes": "jos se borim s formom ali ideee"
+    },
+    {
+        "datetime": "2015-04-20T18:51:42.222Z",
+        "prg_id": 89,
+        "prg_name": "Vertical Rows",
+        "usr_id": 1,
+        "goal": 665,
+        "performed": 664,
+        "repeat": true,
+        "next_progression": false,
+        "notes": "umoran pa je falilio snage"
     }
 }
