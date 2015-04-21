@@ -7,12 +7,10 @@ $progressions = file_get_contents("./progression.json");
 $progressionsArray = json_decode($progressions, TRUE);
 
 $prgsArray = array();
-$id = 0;
 
 foreach ($progressionsArray as $prgTypeName => $prgTypeVal) {
     $type = $prgTypeName;
     foreach ($prgTypeVal as $prgPropsArray) {
-        $id++;
         /* Setting description, goal, media to default values so they can be */
         /* left out in ./progression.json */ 
         $description = NULL;
@@ -21,14 +19,14 @@ foreach ($progressionsArray as $prgTypeName => $prgTypeVal) {
         foreach ($prgPropsArray as $key => $value) {
             /* print "$key => $value\n"; */
             switch ($key) {
+                case 'id':
+                    $id = $value;
+                    break;
                 case 'type':
                     $type = $value;
                     break;
                 case 'name':
                     $name = "$value";
-                    break;
-                case 'position':
-                    $position = $value;
                     break;
                 case 'description':
                     $description = $value;
@@ -40,7 +38,7 @@ foreach ($progressionsArray as $prgTypeName => $prgTypeVal) {
                     $media = $value;
                     break;
                 default:
-                    echo "Ups I Shouldn't be here";
+                    echo "$key: $value - ignored <br>";
                     break;
             }
         }
@@ -48,7 +46,6 @@ foreach ($progressionsArray as $prgTypeName => $prgTypeVal) {
             "id" => $id, 
             "type" => $type, 
             "name" => $name, 
-            "position" => $position, 
             "description" => $description, 
             "goal" => $goal, 
             "media" => $media
@@ -79,7 +76,6 @@ try {
           `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
           `type` varchar(30) NOT NULL,
           `name` varchar(50) NOT NULL,
-          `position` int(11) NOT NULL,
           `description` text,
           `goal` int(11) NOT NULL,
           `media` text
@@ -135,8 +131,8 @@ SQL;
         /* $db->exec($sql); */
 
         // PDO Way
-        $stmnt = $db->prepare('INSERT INTO Progression (id, type, name, position,
-                               description, goal, media) VALUES (?,?,?,?,?,?,?)');
+        $stmnt = $db->prepare('INSERT INTO Progression (id, type, name,
+                               description, goal, media) VALUES (?,?,?,?,?,?)');
         $stmnt->execute(array_values($prg));
     }
 
@@ -150,7 +146,7 @@ SQL;
      
     while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         echo "<br>";
-        echo $row['id'].' '.$row['position'].' '.$row['name'].' '; //etc...
+        echo $row['id'].' '.$row['name'].' '; //etc...
     }
 }
 catch(PDOException $e) {

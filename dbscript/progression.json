@@ -1,285 +1,287 @@
 {
     "Squats": [
         {
+            "comment": "my shinny custom json comment",
+            "any": "key that is not, type, id, name, description, media and goal is discarded as comment",
             "name": "Assisted Squats", 
-            "position": 100
+            "id": 100
         },
         {
             "name": "Deep Assisted Squats",
-            "position": 110,
+            "id": 105,
             "description": "My fancy progression description",
             "media": null
         },
         {
             "name": "Squats",
-            "position": 120,
+            "id": 110,
             "description": null,
             "goal": 777
         },
         {   
            "name": "Deep Squats",
-           "position": 130,
+           "id": 115,
            "description": null
         },
         {
             "name": "Bulgarian Split Squats",
-            "position": 140,
+            "id": 120,
             "description": null,
             "goal": 888,
             "media": null
         },
         {   
            "name": "Begginer Shrimps",
-           "position": 150,
+           "id": 125,
            "description": null
         },
         {   
            "name": "Assisted One Legged Squats",
-           "position": 160,
+           "id": 130,
            "description": null
         },
         {   
            "name": "Balance Assisted One Legged Squats",
-           "position": 170,
+           "id": 135,
            "description": null
         },
         {   
            "name": "Weighted One Legged Squats",
-           "position": 180,
+           "id": 140,
            "description": null
         },
         {   
            "name": "One Legged Squats",
-           "position": 190,
+           "id": 145,
            "description": null
         },
         {   
            "name": "Renegade Pistols",
-           "position": 200,
+           "id": 150,
            "description": null
         },
         {   
            "name": "Intermediate Shrimps",
-           "position": 210,
+           "id": 155,
            "description": null
         },
         {   
            "name": "Advanced Shrimps",
-           "position": 220,
+           "id": 160,
            "description": null
         }
     ],
     "Pull Ups": [
         {
             "name": "Leg Assisted Pull Ups",
-            "position": 100,
+            "id": 200,
             "description": null,
             "goal": 888,
             "media": null
         },
         {
             "name": "Jackknife Pull Ups",
-            "position": 110,
+            "id": 205,
             "description": null,
             "goal": 888,
             "media": null
         },
         {
             "name": "Eccentric Pull Ups",
-            "position": 120,
+            "id": 210,
             "description": null
         },
         {
             "name": "Half Pull Ups (top half)",
-            "position": 130,
+            "id": 215,
             "description": null
         },
         {
             "name": "Pull Ups",
-            "position": 130,
+            "id": 220,
             "description": null
         },
         {
             "name": "Close Grip Pull Ups",
-            "position": 140,
+            "id": 225,
             "description": null
         },
         {
             "name": "Wide Grip Pull Ups",
-            "position": 150,
+            "id": 230,
             "description": null
         },
         {
             "name": "Archer Pull Ups",
-            "position": 160,
+            "id": 235,
             "goal": 666,
             "description": null
         },
         {
             "name": "Sternum Pull Ups",
-            "position": 170,
+            "id": 240,
             "description": null
         },
         {
             "name": "Belly Button Pull Ups",
-            "position": 180,
+            "id": 245,
             "description": null
         },
         {
             "name": "One Arm Towel Assisted Pull Ups",
-            "position": 190,
+            "id": 250,
             "description": null
         },
         {
             "name": "One Arm Towel Assisted Pull Ups And Eccentrics",
-            "position": 200,
+            "id": 255,
             "description": null
         },
         {
             "name": "Half One Arm Pull Ups",
-            "position": 210,
+            "id": 260,
             "description": null
         },
         {
             "name": "One Arm Pull Ups",
-            "position": 220,
+            "id": 265,
             "description": null
         }
     ],
     "Handstand Push Ups": [
         {
             "name": "Incline Pike Push Ups",
-            "position": 100,
+            "id": 300,
             "description": null,
             "goal": 888,
             "media": null
         },
         {
             "name": "Incline Diamond Push Ups",
-            "position": 110,
+            "id": 305,
             "description": null,
             "goal": 888,
             "media": null
         },
         {
             "name": "Pike Push Ups",
-            "position": 120,
+            "id": 310,
             "description": null
         },
         {
             "name": "Pike Diamond Push Ups",
-            "position": 130,
+            "id": 315,
             "description": null
         },
         {
             "name": "Decline Pike Push Ups",
-            "position": 140,
+            "id": 320,
             "description": null
         },
         {
             "name": "Decline Pike Diamond Push Ups",
-            "position": 150,
+            "id": 325,
             "description": null
         },
         {
             "name": "Wall Bent Waist Handstand Push Ups",
-            "position": 160,
+            "id": 330,
             "description": null
         },
         {
             "name": "Wall Bent Waist Handstand Diamond Push Ups",
-            "position": 170,
+            "id": 335,
             "description": null
         },
         {
             "name": "Wall Half Handstand Push Ups",
-            "position": 180,
+            "id": 340,
             "description": null
         },
         {
             "name": "Wall Handstand Push Ups",
-            "position": 190,
+            "id": 345,
             "description": null
         },
         {
             "name": "Wall Handstand Diamond Push Ups",
-            "position": 200,
+            "id": 350,
             "description": null
         },
         {
             "name": "Wall Handstand Raised Push Ups",
-            "position": 210,
+            "id": 355,
             "description": null
         }
     ],
     "Leg Raises": [
         {
             "name": "Flat Knee Raises",
-            "position": 100,
+            "id": 400,
             "description": null,
             "goal": 888,
             "media": null
         },
         {
             "name": "Flat Bent Leg Raises",
-            "position": 110,
+            "id": 405,
             "description": null,
             "goal": 888,
             "media": null
         },
         {
             "name": "Forearm Knee Raises",
-            "position": 120,
+            "id": 410,
             "description": null
         },
         {
             "name": "Hanging Knee Raises",
-            "position": 130,
+            "id": 415,
             "description": null
         },
         {
             "name": "Forearm Bent Leg Raises",
-            "position": 140,
+            "id": 420,
             "description": null
         },
         {
             "name": "Hanging Bent Leg Raises",
-            "position": 150,
+            "id": 425,
             "description": null
         },
         {
             "name": "Forearm Straight Leg Raises",
-            "position": 160,
+            "id": 430,
             "description": null
         },
         {
             "name": "Hanging Straight Leg Raises",
-            "position": 170,
+            "id": 435,
             "description": null
         },
         {
             "name": "Hanging Bent Leg V Raises",
-            "position": 180,
+            "id": 440,
             "description": null
         },
         {
             "name": "Hanging Straight Leg V Raises",
-            "position": 190,
+            "id": 445,
             "description": null
         },
         {
             "name": "Hanging Fan Raises",
-            "position": 200,
+            "id": 450,
             "description": null
         },
         {
             "name": "Hanging V Raises windshield wipers",
-            "position": 210,
+            "id": 455,
             "description": null
         },
         {
             "name": "One Arm Hanging Leg Raises",
-            "position": 220,
+            "id": 460,
             "description": null
         }
 
@@ -287,292 +289,292 @@
     "Push Ups": [
         {
             "name": "Wall Push Ups",
-            "position": 100,
+            "id": 500,
             "description": null,
             "goal": 888,
             "media": null
         },
         {
             "name": "Box Push Ups",
-            "position": 110,
+            "id": 505,
             "description": null,
             "goal": 888,
             "media": null
         },
         {
             "name": "Three Quarter Push Ups",
-            "position": 120,
+            "id": 510,
             "description": null
         },
         {
             "name": "Three Quarter Push Ups + 5s Eccentrics",
-            "position": 130,
+            "id": 515,
             "description": null
         },
         {
             "name": "Push Ups",
-            "position": 140,
+            "id": 520,
             "description": null
         },
         {
             "name": "Elbows In Push Ups",
-            "position": 150,
+            "id": 525,
             "description": null
         },
         {
             "name": "Diamond Push Ups",
-            "position": 160,
+            "id": 530,
             "description": null
         },
         {
             "name": "Uneven Push Ups",
-            "position": 170,
+            "id": 535,
             "description": null
         },
         {
             "name": "Decline Push Ups",
-            "position": 180,
+            "id": 540,
             "description": null
         },
         {
             "name": "Decline Elbows In Push Ups",
-            "position": 190,
+            "id": 545,
             "description": null
         },
         {
             "name": "Decline Diamond Push Ups",
-            "position": 200,
+            "id": 550,
             "description": null
         },
         {
             "name": "Wall One Arm Push Ups",
-            "position": 210,
+            "id": 555,
             "description": null
         },
         {
             "name": "Incline One Arm Push Ups",
-            "position": 220,
+            "id": 560,
             "description": null
         },
         {
             "name": "One Arm Push Ups",
-            "position": 230,
+            "id": 565,
             "description": null
         },
         {
             "name": "Decline One Arm Push Ups",
-            "position": 240,
+            "id": 570,
             "description": null
         }
     ],
     "Dips": [
         {
             "name": "Bent Knee Bench Dips",
-            "position": 100,
+            "id": 600,
             "description": null,
             "goal": 888,
             "media": null
         },
         {
             "name": "Straight Legs Bench Dips",
-            "position": 110,
+            "id": 605,
             "description": null,
             "goal": 888,
             "media": null
         },
         {
             "name": "One Elevated Leg, Straight Legs Dips",
-            "position": 120,
+            "id": 610,
             "description": null
         },
         {
             "name": "Elevated Legs Bench Dips",
-            "position": 130,
+            "id": 615,
             "description": null
         },
         {
             "name": "One Extended Leg, Elevated Legs Dips",
-            "position": 140,
+            "id": 620,
             "description": null
         },
         {
             "name": "Legs Supported Dips",
-            "position": 150,
+            "id": 625,
             "description": null
         },
         {
             "name": "One Leg Supported Dips",
-            "position": 160,
+            "id": 630,
             "description": null
         },
         {
             "name": "Jumping And 5s Eccentric Dips",
-            "position": 170,
+            "id": 635,
             "description": null
         },
         {
             "name": "Half Dips (Top Half)",
-            "position": 180,
+            "id": 640,
             "description": null
         },
         {
             "name": "Dips",
-            "position": 190,
+            "id": 645,
             "description": null
         },
         {
             "name": "Legs Forward Dips",
-            "position": 200,
+            "id": 650,
             "description": null
         },
         {
             "name": "Modified Russian Dips",
-            "position": 210,
+            "id": 655,
             "description": null
         },
         {
             "name": "Russian Dips",
-            "position": 220,
+            "id": 660,
             "description": null
         }
     ],
     "Horizontal Pulls": [
         {
             "name": "Vertical Pulls",
-            "position": 100,
+            "id": 700,
             "description": null,
             "goal": 888,
             "media": null
         },
         {
             "name": "Vertical Pulls With A Towel",
-            "position": 110,
+            "id": 705,
             "description": null,
             "goal": 888,
             "media": null
         },
         {
             "name": "Inverted Rows With Legs Bent",
-            "position": 120,
+            "id": 710,
             "description": null
         },
         {
             "name": "Inverted Rows With Straight Legs",
-            "position": 130,
+            "id": 715,
             "description": null
         },
         {
             "name": "Inverted Rows With One Leg Extended",
-            "position": 140,
+            "id": 720,
             "description": null
         },
         {
             "name": "Inverted Rows With Legs Elevated",
-            "position": 150,
+            "id": 725,
             "description": null
         },
         {
             "name": "Legs Elevated One Leg Extended",
-            "position": 160,
+            "id": 730,
             "description": null
         },
         {
             "name": "Tuck Knees Front Lever Rows",
-            "position": 170,
+            "id": 735,
             "description": null
         },
         {
             "name": "Vertical Rows",
-            "position": 175,
+            "id": 740,
             "description": null
         },
         {
             "name": "Advanced Tuck Knees Rows",
-            "position": 180,
+            "id": 745,
             "description": null
         },
         {
             "name": "One Tuck Knee One Leg Extended Rows",
-            "position": 190,
+            "id": 750,
             "description": null
         },
         {
             "name": "Straddle Legs Front Lever Rows",
-            "position": 200,
+            "id": 755,
             "description": null
         },
         {
             "name": "Front Lever Rows",
-            "position": 210,
+            "id": 760,
             "description": null
         }
     ],
     "Planks": [
         {
             "name": "Kneeling Plank",
-            "position": 100,
+            "id": 800,
             "description": null,
             "goal": 60,
             "media": null
         },
         {
             "name": "Kneeling Side Plank",
-            "position": 110,
+            "id": 805,
             "description": null,
             "goal": 60,
             "media": null
         },
         {
             "name": "Plank",
-            "position": 120,
+            "id": 810,
             "description": null,
             "goal": 60
         },
         {
             "name": "Side Plank",
-            "position": 130,
+            "id": 815,
             "description": null,
             "goal": 60
 
         },
         {
             "name": "Decline Plank",
-            "position": 140,
+            "id": 820,
             "description": null,
             "goal": 60
 
         },
         {
             "name": "Leg Lift Plank",
-            "position": 150,
+            "id": 825,
             "description": null,
             "goal": 60
 
         },
         {
             "name": "Arm And Leg Lift Plank",
-            "position": 160,
+            "id": 830,
             "description": null,
             "goal": 60
 
         },
         {
             "name": "Arm And Leg Lift Side Plank",
-            "position": 170,
+            "id": 835,
             "description": null,
             "goal": 60
 
         },
         {
             "name": "Wall Plank",
-            "position": 180,
+            "id": 840,
             "description": null,
             "goal": 60
 
         },
         {
             "name": "Hollow Hold",
-            "position": 190,
+            "id": 845,
             "description": null,
             "goal": 60
 
