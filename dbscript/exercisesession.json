@@ -1,0 +1,203 @@
+{
+    "items" :
+    {
+        "datetime": "2015-04-06",
+        "prg_id": 22,
+        "usr_id": 1,
+        "goal": 665,
+        "performed": 665,
+        "repeat": true,
+        "next_progression": false,
+        "notes": "forma"
+    },
+    {
+        "datetime": "2015-04-06",
+        "prg_id": 36,
+        "usr_id": 1,
+        "goal": 776,
+        "performed": 776,
+        "repeat": false,
+        "next_progression": false,
+        "notes": "fak jea"
+    },
+    {
+        "datetime": "2015-04-06",
+        "prg_id": 89,
+        "usr_id": 1,
+        "goal": 554,
+        "performed": 554,
+        "repeat": true,
+        "next_progression": false,
+        "notes": "bad form"
+    },
+    {
+        "datetime": "2015-04-06",
+        "prg_id": 79,
+        "usr_id": 1,
+        "goal": 766,
+        "performed": 765,
+        "repeat": true,
+        "next_progression": false,
+        "notes": "umoorann"
+    },
+    {
+        "datetime": "2015-04-08T19:30:22.222Z",
+        "prg_id": 10,
+        "usr_id": 1,
+        "goal": 777,
+        "performed": 777,
+        "repeat": false,
+        "next_progression": false,
+        "notes": "jeaaa"
+    },
+    {
+        "datetime": "2015-04-08T19:35:22.222Z",
+        "prg_id": 89,
+        "usr_id": 1,
+        "goal": 555,
+        "performed": 555,
+        "repeat": false,
+        "next_progression": false,
+        "notes": ""
+    },
+    {
+        "datetime": "2015-04-08T19:39:22.222Z",
+        "prg_id": 49,
+        "usr_id": 1,
+        "goal": 887,
+        "performed": 887,
+        "repeat": false,
+        "next_progression": false,
+        "notes": ""
+    },
+    {
+        "datetime": "2015-04-10T19:30:22.222Z",
+        "prg_id": 22,
+        "usr_id": 1,
+        "goal": 665,
+        "performed": 655,
+        "repeat": true,
+        "next_progression": false,
+        "notes": "početi od 444 al da svaki put diram baš s prsnom kosti"
+    },
+    {
+        "datetime": "2015-04-10T19:33:22.222Z",
+        "prg_id": 36,
+        "usr_id": 1,
+        "goal": 777,
+        "performed": 777,
+        "repeat": true,
+        "next_progression": false,
+        "notes": "nisam bas zadovoljan formom"
+    },
+    {
+        "datetime": "2015-04-10T19:39:22.222Z",
+        "prg_id": 64,
+        "usr_id": 1,
+        "goal": 444,
+        "performed": 444,
+        "repeat": false,
+        "next_progression": false,
+        "notes": "pomoci si s drugom rukom"
+    },
+    {
+        "datetime": "2015-04-13T19:30:22.222Z",
+        "prg_id": 22,
+        "usr_id": 1,
+        "goal": 444,
+        "performed": 444,
+        "repeat": false,
+        "next_progression": false,
+        "notes": "dodirniiooo fak jea"
+    },
+    {
+        "datetime": "2015-04-13T19:36:22.222Z",
+        "prg_id": 36,
+        "usr_id": 1,
+        "goal": 777,
+        "performed": 777,
+        "repeat": false,
+        "next_progression": false,
+        "notes": "bam bam bam!!!"
+    },
+    {
+        "datetime": "2015-04-13T19:41:22.222Z",
+        "prg_id": 49,
+        "usr_id": 1,
+        "goal": 888,
+        "performed": 888,
+        "repeat": true,
+        "next_progression": false,
+        "notes": "jos malooo"
+    },
+    {
+        "datetime": "2015-04-13T19:46:22.222Z",
+        "prg_id": 79,
+        "usr_id": 1,
+        "goal": 766,
+        "performed": 766,
+        "repeat": false,
+        "next_progression": false,
+        "notes": "hoplaaa"
+    },
+    {
+        "datetime": "2015-04-15T19:36:22.222Z",
+        "prg_id": 22,
+        "usr_id": 1,
+        "goal": 544,
+        "performed": 544,
+        "repeat": false,
+        "next_progression": false,
+        "notes": ""
+    },
+    {
+        "datetime": "2015-04-15T19:39:22.222Z",
+        "prg_id": 10,
+        "usr_id": 1,
+        "goal": 877,
+        "performed": 877,
+        "repeat": false,
+        "next_progression": false,
+        "notes": "aaa mrzimm pistolse"
+    },
+    {
+        "datetime": "2015-04-15T19:43:22.222Z",
+        "prg_id": 89,
+        "usr_id": 1,
+        "goal": 655,
+        "performed": 655,
+        "repeat": false,
+        "next_progression": false,
+        "notes": "vrows"
+    },
+    {
+        "datetime": "2015-04-17T19:43:22.222Z",
+        "prg_id": 49,
+        "usr_id": 1,
+        "goal": 888,
+        "performed": 888,
+        "repeat": false,
+        "next_progression": true,
+        "notes": "lr: "
+    },
+    {
+        "datetime": "2015-04-17T19:46:22.222Z",
+        "prg_id": 65,
+        "usr_id": 1,
+        "goal": 777,
+        "performed": 756,
+        "repeat": false,
+        "next_progression": false,
+        "notes": "one arm push test"
+    },
+    {
+        "datetime": "2015-04-15T19:43:22.222Z",
+        "prg_id": 22,
+        "usr_id": 1,
+        "goal": 554,
+        "performed": 554,
+        "repeat": true,
+        "next_progression": false,
+        "notes": "sternum, umorannn"
+    }
+}
