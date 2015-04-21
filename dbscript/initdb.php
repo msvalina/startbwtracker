@@ -2,6 +2,61 @@
 /* Create database, create tables, read ./progression.json
  * and populate tables */
 
+echo "Reading ./progression.json <br>";
+$progressions = file_get_contents("./progression.json");
+$progressionsArray = json_decode($progressions, TRUE);
+
+$prgsArray = array();
+$id = 0;
+
+foreach ($progressionsArray as $prgTypeName => $prgTypeVal) {
+    $type = $prgTypeName;
+    foreach ($prgTypeVal as $prgPropsArray) {
+        $id++;
+        /* Setting description, goal, media to default values so they can be */
+        /* left out in ./progression.json */ 
+        $description = NULL;
+        $goal = 888;
+        $media = NULL;
+        foreach ($prgPropsArray as $key => $value) {
+            /* print "$key => $value\n"; */
+            switch ($key) {
+                case 'type':
+                    $type = $value;
+                    break;
+                case 'name':
+                    $name = "$value";
+                    break;
+                case 'position':
+                    $position = $value;
+                    break;
+                case 'description':
+                    $description = $value;
+                    break;
+                case 'goal':
+                    $goal = $value;
+                    break;
+                case 'media':
+                    $media = $value;
+                    break;
+                default:
+                    echo "Ups I Shouldn't be here";
+                    break;
+            }
+        }
+        $prg = array (
+            "id" => $id, 
+            "type" => $type, 
+            "name" => $name, 
+            "position" => $position, 
+            "description" => $description, 
+            "goal" => $goal, 
+            "media" => $media
+        );
+        array_push($prgsArray, $prg);
+    }
+}
+
 $servername = "localhost";
 $username = "root";
 $password = "mantis5c";
@@ -65,70 +120,9 @@ SQL;
 SQL;
     $db->exec($sql);
     echo "Table ExerciseSession created successfully<br>";
-}
-catch(PDOException $e) {
-    echo $sql . "<br>" . $e->getMessage();
-}
 
-echo "Reading ./progression.json <br>";
-$progressions = file_get_contents("./progression.json");
-$progressionsArray = json_decode($progressions, TRUE);
 
-$prgsArray = array();
-$id = 0;
-
-foreach ($progressionsArray as $prgTypeName => $prgTypeVal) {
-    $type = $prgTypeName;
-    foreach ($prgTypeVal as $prgPropsArray) {
-        $id++;
-        /* Setting description, goal, media to default values so they can be */
-        /* left out in ./progression.json */ 
-        $description = NULL;
-        $goal = 888;
-        $media = NULL;
-        foreach ($prgPropsArray as $key => $value) {
-            /* print "$key => $value\n"; */
-            switch ($key) {
-                case 'type':
-                    $type = $value;
-                    break;
-                case 'name':
-                    $name = "$value";
-                    break;
-                case 'position':
-                    $position = $value;
-                    break;
-                case 'description':
-                    $description = $value;
-                    break;
-                case 'goal':
-                    $goal = $value;
-                    break;
-                case 'media':
-                    $media = $value;
-                    break;
-                default:
-                    echo "Ups I Shouldn't be here";
-                    break;
-            }
-        }
-        $prg = array (
-            "id" => $id, 
-            "type" => $type, 
-            "name" => $name, 
-            "position" => $position, 
-            "description" => $description, 
-            "goal" => $goal, 
-            "media" => $media
-        );
-        array_push($prgsArray, $prg);
-    }
-}
-
-try {
-    $db = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
-    // set the PDO error mode to exception
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    echo "Inserting progressions into Progression table<br>";
     foreach ($prgsArray as $prg) {
         // Maybe this should be done with pdo prepare and execute but I tried
         // and didn't get far, so fuck it it ain't wort my time. Maybe later.
