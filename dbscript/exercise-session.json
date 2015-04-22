@@ -1,5 +1,4 @@
-{
-    "items" :
+[
     {
         "datetime": "2015-04-06",
         "prg_id": 240,
@@ -255,4 +254,4 @@
         "next_progression": false,
         "notes": "umoran pa je falilio snage"
     }
-}
+]
