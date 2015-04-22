@@ -2,7 +2,7 @@
     "items" :
     {
         "datetime": "2015-04-06",
-        "prg_id": 22,
+        "prg_id": 240,
         "usr_id": 1,
         "goal": 665,
         "performed": 665,
@@ -12,7 +12,7 @@
     },
     {
         "datetime": "2015-04-06",
-        "prg_id": 36,
+        "prg_id": 340,
         "usr_id": 1,
         "goal": 776,
         "performed": 776,
@@ -22,7 +22,7 @@
     },
     {
         "datetime": "2015-04-06",
-        "prg_id": 89,
+        "prg_id": 740,
         "usr_id": 1,
         "goal": 554,
         "performed": 554,
@@ -32,7 +32,7 @@
     },
     {
         "datetime": "2015-04-06",
-        "prg_id": 79,
+        "prg_id": 655,
         "usr_id": 1,
         "goal": 766,
         "performed": 765,
@@ -42,7 +42,7 @@
     },
     {
         "datetime": "2015-04-08T19:30:22.222Z",
-        "prg_id": 10,
+        "prg_id": 145,
         "usr_id": 1,
         "goal": 777,
         "performed": 777,
@@ -52,7 +52,7 @@
     },
     {
         "datetime": "2015-04-08T19:35:22.222Z",
-        "prg_id": 89,
+        "prg_id": 740,
         "usr_id": 1,
         "goal": 555,
         "performed": 555,
@@ -62,7 +62,7 @@
     },
     {
         "datetime": "2015-04-08T19:39:22.222Z",
-        "prg_id": 49,
+        "prg_id": 445,
         "usr_id": 1,
         "goal": 887,
         "performed": 887,
@@ -72,7 +72,7 @@
     },
     {
         "datetime": "2015-04-10T19:30:22.222Z",
-        "prg_id": 22,
+        "prg_id": 240,
         "usr_id": 1,
         "goal": 665,
         "performed": 655,
@@ -82,7 +82,7 @@
     },
     {
         "datetime": "2015-04-10T19:33:22.222Z",
-        "prg_id": 36,
+        "prg_id": 340,
         "usr_id": 1,
         "goal": 777,
         "performed": 777,
@@ -92,7 +92,7 @@
     },
     {
         "datetime": "2015-04-10T19:39:22.222Z",
-        "prg_id": 64,
+        "prg_id": 560,
         "usr_id": 1,
         "goal": 444,
         "performed": 444,
@@ -102,7 +102,7 @@
     },
     {
         "datetime": "2015-04-13T19:30:22.222Z",
-        "prg_id": 22,
+        "prg_id": 240,
         "usr_id": 1,
         "goal": 444,
         "performed": 444,
@@ -112,7 +112,7 @@
     },
     {
         "datetime": "2015-04-13T19:36:22.222Z",
-        "prg_id": 36,
+        "prg_id": 340,
         "usr_id": 1,
         "goal": 777,
         "performed": 777,
@@ -122,7 +122,7 @@
     },
     {
         "datetime": "2015-04-13T19:41:22.222Z",
-        "prg_id": 49,
+        "prg_id": 445,
         "usr_id": 1,
         "goal": 888,
         "performed": 888,
@@ -132,7 +132,7 @@
     },
     {
         "datetime": "2015-04-13T19:46:22.222Z",
-        "prg_id": 79,
+        "prg_id": 655,
         "usr_id": 1,
         "goal": 766,
         "performed": 766,
@@ -142,7 +142,7 @@
     },
     {
         "datetime": "2015-04-15T19:36:22.222Z",
-        "prg_id": 22,
+        "prg_id": 240,
         "usr_id": 1,
         "goal": 544,
         "performed": 544,
@@ -152,7 +152,7 @@
     },
     {
         "datetime": "2015-04-15T19:39:22.222Z",
-        "prg_id": 10,
+        "prg_id": 145,
         "usr_id": 1,
         "goal": 877,
         "performed": 877,
@@ -162,7 +162,7 @@
     },
     {
         "datetime": "2015-04-15T19:43:22.222Z",
-        "prg_id": 89,
+        "prg_id": 740,
         "usr_id": 1,
         "goal": 655,
         "performed": 655,
@@ -172,7 +172,7 @@
     },
     {
         "datetime": "2015-04-17T19:43:22.222Z",
-        "prg_id": 49,
+        "prg_id": 445,
         "usr_id": 1,
         "goal": 888,
         "performed": 888,
@@ -182,7 +182,7 @@
     },
     {
         "datetime": "2015-04-17T19:46:22.222Z",
-        "prg_id": 65,
+        "prg_id": 560,
         "usr_id": 1,
         "goal": 777,
         "performed": 756,
@@ -192,7 +192,7 @@
     },
     {
         "datetime": "2015-04-17T19:53:22.222Z",
-        "prg_id": 22,
+        "prg_id": 240,
         "usr_id": 1,
         "goal": 554,
         "performed": 554,
@@ -202,7 +202,7 @@
     },
     {
         "datetime": "2015-04-20T18:30:42.222Z",
-        "prg_id": 22,
+        "prg_id": 240,
         "prg_name": "Sternum Pull Ups",
         "usr_id": 1,
         "goal": 554,
@@ -213,7 +213,7 @@
     },
     {
         "datetime": "2015-04-20T18:36:42.222Z",
-        "prg_id": 36,
+        "prg_id": 340,
         "prg_name": "Wall Half Handstand Push Ups",
         "usr_id": 1,
         "goal": 877,
@@ -224,7 +224,7 @@
     },
     {
         "datetime": "2015-04-20T18:40:42.222Z",
-        "prg_id": 49,
+        "prg_id": 445,
         "prg_name": "Hanging Straight Leg V Raises",
         "usr_id": 1,
         "goal": 888,
@@ -235,7 +235,7 @@
     },
     {
         "datetime": "2015-04-20T18:45:42.222Z",
-        "prg_id": 65,
+        "prg_id": 560,
         "prg_name": "Incline One Arm Push Ups",
         "usr_id": 1,
         "goal": 666,
@@ -246,7 +246,7 @@
     },
     {
         "datetime": "2015-04-20T18:51:42.222Z",
-        "prg_id": 89,
+        "prg_id": 740,
         "prg_name": "Vertical Rows",
         "usr_id": 1,
         "goal": 665,
