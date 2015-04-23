@@ -96,13 +96,17 @@ if ($exSessionsJson != NULL) {
             "datetime" => $datetime, 
             "prg_id" => $prg_id, 
             "usr_id" => $usr_id, 
-            "goal" => $performed, 
+            "goal" => $goal, 
+            "performed" => $performed,
             "repeat" => $repeat,
             "next" => $next,
             "notes" => $notes
         );
         array_push($exSessionsArray, $exSes);
     }
+}
+else {
+    echo "ERROR: Json is NULL something is wrong<br>";
 }
 
 $servername = "localhost";
@@ -153,11 +157,11 @@ SQL;
         DROP TABLE IF EXISTS `ExerciseSession`;
         CREATE TABLE `ExerciseSession` (
           `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-          `date` date NOT NULL,
+          `datetime` datetime NOT NULL,
           `goal` int(11) NOT NULL,
           `performed` int(11) NOT NULL,
-          `repeat` boolean NOT NULL default TRUE,
-          `next_progression` boolean NOT NULL default TRUE,
+          `repeat` tinyint(1) NOT NULL,
+          `next` tinyint(1) NOT NULL,
           `notes` text NOT NULL,
           `usr_id` int(11) NOT NULL,
           `prg_id` int(11) NOT NULL, 
@@ -182,8 +186,8 @@ SQL;
         /* $db->exec($sql); */
 
         // PDO Way
-        $stmnt = $db->prepare('INSERT INTO Progression (id, type, name,
-                               description, goal, media) VALUES (?,?,?,?,?,?)');
+        $stmnt = $db->prepare('INSERT INTO `Progression` (`id`, `type`, `name`,
+                               `description`, `goal`, `media`) VALUES (?,?,?,?,?,?)');
         $stmnt->execute(array_values($prg));
     }
 
@@ -193,11 +197,27 @@ SQL;
 SQL;
     $db->exec($sql);
 
-    $stmt = $db->query("SELECT * FROM Progression");
+    echo "Inserting exercise sessions into ExerciseSession table<br>";
+    foreach ($exSessionsArray as $exSes) {
+        // PDO Way
+        $stmnt = $db->prepare('INSERT INTO `ExerciseSession` (`datetime`, `prg_id`,
+                               `usr_id`, `goal`, `performed`, `repeat`, `next`, `notes`)
+                               VALUES (?,?,?,?,?,?,?,?)');
+        $stmnt->execute(array_values($exSes));
+    }
+
+    $stmt = $db->query("SELECT * FROM `Progression`");
      
     while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         echo "<br>";
         echo $row['id'].' '.$row['name'].' '; //etc...
+    }
+
+    $stmt = $db->query("SELECT * FROM `ExerciseSession`");
+     
+    while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        echo "<br>";
+        echo $row['id'].' '.$row['prg_id'].' '; //etc...
     }
 }
 catch(PDOException $e) {
