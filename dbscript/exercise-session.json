@@ -2,11 +2,12 @@
     {
         "datetime": "2015-04-06",
         "prg_id": 240,
+        "prg_name" : "I DONT KNOW THE NAME",
         "usr_id": 1,
         "goal": 665,
         "performed": 665,
         "repeat": true,
-        "next_progression": false,
+        "next": false,
         "notes": "forma"
     },
     {
@@ -16,7 +17,7 @@
         "goal": 776,
         "performed": 776,
         "repeat": false,
-        "next_progression": false,
+        "next": false,
         "notes": "fak jea"
     },
     {
@@ -26,7 +27,7 @@
         "goal": 554,
         "performed": 554,
         "repeat": true,
-        "next_progression": false,
+        "next": false,
         "notes": "bad form"
     },
     {
@@ -36,7 +37,7 @@
         "goal": 766,
         "performed": 765,
         "repeat": true,
-        "next_progression": false,
+        "next": false,
         "notes": "umoorann"
     },
     {
@@ -46,7 +47,7 @@
         "goal": 777,
         "performed": 777,
         "repeat": false,
-        "next_progression": false,
+        "next": false,
         "notes": "jeaaa"
     },
     {
@@ -56,7 +57,7 @@
         "goal": 555,
         "performed": 555,
         "repeat": false,
-        "next_progression": false,
+        "next": false,
         "notes": ""
     },
     {
@@ -66,7 +67,7 @@
         "goal": 887,
         "performed": 887,
         "repeat": false,
-        "next_progression": false,
+        "next": false,
         "notes": ""
     },
     {
@@ -76,7 +77,7 @@
         "goal": 665,
         "performed": 655,
         "repeat": true,
-        "next_progression": false,
+        "next": false,
         "notes": "početi od 444 al da svaki put diram baš s prsnom kosti"
     },
     {
@@ -86,7 +87,7 @@
         "goal": 777,
         "performed": 777,
         "repeat": true,
-        "next_progression": false,
+        "next": false,
         "notes": "nisam bas zadovoljan formom"
     },
     {
@@ -96,7 +97,7 @@
         "goal": 444,
         "performed": 444,
         "repeat": false,
-        "next_progression": false,
+        "next": false,
         "notes": "pomoci si s drugom rukom"
     },
     {
@@ -106,7 +107,7 @@
         "goal": 444,
         "performed": 444,
         "repeat": false,
-        "next_progression": false,
+        "next": false,
         "notes": "dodirniiooo fak jea"
     },
     {
@@ -116,7 +117,7 @@
         "goal": 777,
         "performed": 777,
         "repeat": false,
-        "next_progression": false,
+        "next": false,
         "notes": "bam bam bam!!!"
     },
     {
@@ -126,7 +127,7 @@
         "goal": 888,
         "performed": 888,
         "repeat": true,
-        "next_progression": false,
+        "next": false,
         "notes": "jos malooo"
     },
     {
@@ -136,7 +137,7 @@
         "goal": 766,
         "performed": 766,
         "repeat": false,
-        "next_progression": false,
+        "next": false,
         "notes": "hoplaaa"
     },
     {
@@ -146,7 +147,7 @@
         "goal": 544,
         "performed": 544,
         "repeat": false,
-        "next_progression": false,
+        "next": false,
         "notes": ""
     },
     {
@@ -156,7 +157,7 @@
         "goal": 877,
         "performed": 877,
         "repeat": false,
-        "next_progression": false,
+        "next": false,
         "notes": "aaa mrzimm pistolse"
     },
     {
@@ -166,7 +167,7 @@
         "goal": 655,
         "performed": 655,
         "repeat": false,
-        "next_progression": false,
+        "next": false,
         "notes": "vrows"
     },
     {
@@ -176,7 +177,7 @@
         "goal": 888,
         "performed": 888,
         "repeat": false,
-        "next_progression": true,
+        "next": true,
         "notes": "lr: "
     },
     {
@@ -186,7 +187,7 @@
         "goal": 777,
         "performed": 756,
         "repeat": false,
-        "next_progression": false,
+        "next": false,
         "notes": "one arm push test"
     },
     {
@@ -196,7 +197,7 @@
         "goal": 554,
         "performed": 554,
         "repeat": true,
-        "next_progression": false,
+        "next": false,
         "notes": "sternum, umorannn"
     },
     {
@@ -207,7 +208,7 @@
         "goal": 554,
         "performed": 554,
         "repeat": false,
-        "next_progression": false,
+        "next": false,
         "notes": "bam bam"
     },
     {
@@ -218,7 +219,7 @@
         "goal": 877,
         "performed": 877,
         "repeat": false,
-        "next_progression": false,
+        "next": false,
         "notes": "not bad, not bad"
     },
     {
@@ -229,7 +230,7 @@
         "goal": 888,
         "performed": 888,
         "repeat": false,
-        "next_progression": true,
+        "next": true,
         "notes": "htio jos jednom potvrdit da mogu!!! badassss"
     },
     {
@@ -240,7 +241,7 @@
         "goal": 666,
         "performed": 666,
         "repeat": false,
-        "next_progression": false,
+        "next": false,
         "notes": "jos se borim s formom ali ideee"
     },
     {
@@ -251,7 +252,7 @@
         "goal": 665,
         "performed": 664,
         "repeat": true,
-        "next_progression": false,
+        "next": false,
         "notes": "umoran pa je falilio snage"
     }
 ]

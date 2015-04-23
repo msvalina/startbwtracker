@@ -4,41 +4,41 @@
 
 echo "Reading ./progression.json <br>";
 $progressions = file_get_contents("./progression.json");
-$progressionsArray = json_decode($progressions, TRUE);
+$progressionsJson = json_decode($progressions, TRUE);
 
-$prgsArray = array();
+$progressionsArray = array();
 
-foreach ($progressionsArray as $prgTypeName => $prgTypeVal) {
+foreach ($progressionsJson as $prgTypeName => $prgTypeVal) {
     $type = $prgTypeName;
-    foreach ($prgTypeVal as $prgPropsArray) {
+    foreach ($prgTypeVal as $prgPropertiesArray) {
         /* Setting description, goal, media to default values so they can be */
         /* left out in ./progression.json */ 
         $description = NULL;
         $goal = 888;
         $media = NULL;
-        foreach ($prgPropsArray as $key => $value) {
-            /* print "$key => $value\n"; */
-            switch ($key) {
+        foreach ($prgPropertiesArray as $prgKey => $prgValue) {
+            /* print "$prgKey => $prgValue\n"; */
+            switch ($prgKey) {
                 case 'id':
-                    $id = $value;
+                    $id = $prgValue;
                     break;
                 case 'type':
-                    $type = $value;
+                    $type = $prgValue;
                     break;
                 case 'name':
-                    $name = "$value";
+                    $name = "$prgValue";
                     break;
                 case 'description':
-                    $description = $value;
+                    $description = $prgValue;
                     break;
                 case 'goal':
-                    $goal = $value;
+                    $goal = $prgValue;
                     break;
                 case 'media':
-                    $media = $value;
+                    $media = $prgValue;
                     break;
                 default:
-                    echo "$key: $value - ignored <br>";
+                    echo "IGNORING: $prgKey: $prgValue <br>";
                     break;
             }
         }
@@ -50,7 +50,58 @@ foreach ($progressionsArray as $prgTypeName => $prgTypeVal) {
             "goal" => $goal, 
             "media" => $media
         );
-        array_push($prgsArray, $prg);
+        array_push($progressionsArray, $prg);
+    }
+}
+
+echo "Reading ./exercise-session.json <br>";
+$exSessions = file_get_contents("./exercise-session.json");
+$exSessionsJson = json_decode("$exSessions", TRUE);
+$exSessionsArray = array();
+
+if ($exSessionsJson != NULL) {
+    foreach ($exSessionsJson as $exSession) {
+        foreach ($exSession as $exSessionKey => $exSessionVal) {
+            switch ($exSessionKey) {
+                case 'datetime':
+                    $datetime = $exSessionVal;
+                    break;
+                case 'prg_id':
+                    $prg_id = $exSessionVal;
+                    break; 
+                case 'usr_id':
+                    $usr_id = $exSessionVal;
+                    break;
+                case 'goal':
+                    $goal = $exSessionVal;
+                    break;
+                case 'performed':
+                    $performed = $exSessionVal;
+                    break;
+                case 'repeat':
+                    $repeat = $exSessionVal;
+                    break;
+                case 'next':
+                    $next = $exSessionVal;
+                    break;
+                case 'notes':
+                    $notes = $exSessionVal;
+                    break;
+                default:
+                    echo "IGNORING: $exSessionKey: $exSessionVal <br>";
+                    break;
+            }
+        }
+        $exSes = array (
+            "datetime" => $datetime, 
+            "prg_id" => $prg_id, 
+            "usr_id" => $usr_id, 
+            "goal" => $performed, 
+            "repeat" => $repeat,
+            "next" => $next,
+            "notes" => $notes
+        );
+        array_push($exSessionsArray, $exSes);
     }
 }
 
@@ -119,7 +170,7 @@ SQL;
 
 
     echo "Inserting progressions into Progression table<br>";
-    foreach ($prgsArray as $prg) {
+    foreach ($progressionsArray as $prg) {
         // Maybe this should be done with pdo prepare and execute but I tried
         // and didn't get far, so fuck it it ain't wort my time. Maybe later.
         /* $sql = sprintf( */
