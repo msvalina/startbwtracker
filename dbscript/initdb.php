@@ -1,113 +1,6 @@
 <?php 
-/* Create database, create tables, read ./progression.json
- * and populate tables */
-
-echo "Reading ./progression.json <br>";
-$progressions = file_get_contents("./progression.json");
-$progressionsJson = json_decode($progressions, TRUE);
-
-$progressionsArray = array();
-
-foreach ($progressionsJson as $prgTypeName => $prgTypeVal) {
-    $type = $prgTypeName;
-    foreach ($prgTypeVal as $prgPropertiesArray) {
-        /* Setting description, goal, media to default values so they can be */
-        /* left out in ./progression.json */ 
-        $description = NULL;
-        $goal = 888;
-        $media = NULL;
-        foreach ($prgPropertiesArray as $prgKey => $prgValue) {
-            /* print "$prgKey => $prgValue\n"; */
-            switch ($prgKey) {
-                case 'id':
-                    $id = $prgValue;
-                    break;
-                case 'type':
-                    $type = $prgValue;
-                    break;
-                case 'name':
-                    $name = "$prgValue";
-                    break;
-                case 'description':
-                    $description = $prgValue;
-                    break;
-                case 'goal':
-                    $goal = $prgValue;
-                    break;
-                case 'media':
-                    $media = $prgValue;
-                    break;
-                default:
-                    echo "IGNORING: $prgKey: $prgValue <br>";
-                    break;
-            }
-        }
-        $prg = array (
-            "id" => $id, 
-            "type" => $type, 
-            "name" => $name, 
-            "description" => $description, 
-            "goal" => $goal, 
-            "media" => $media
-        );
-        array_push($progressionsArray, $prg);
-    }
-}
-
-echo "Reading ./exercise-session.json <br>";
-$exSessions = file_get_contents("./exercise-session.json");
-$exSessionsJson = json_decode("$exSessions", TRUE);
-$exSessionsArray = array();
-
-if ($exSessionsJson != NULL) {
-    foreach ($exSessionsJson as $exSession) {
-        foreach ($exSession as $exSessionKey => $exSessionVal) {
-            switch ($exSessionKey) {
-                case 'datetime':
-                    $datetime = $exSessionVal;
-                    break;
-                case 'prg_id':
-                    $prg_id = $exSessionVal;
-                    break; 
-                case 'usr_id':
-                    $usr_id = $exSessionVal;
-                    break;
-                case 'goal':
-                    $goal = $exSessionVal;
-                    break;
-                case 'performed':
-                    $performed = $exSessionVal;
-                    break;
-                case 'repeat':
-                    $repeat = $exSessionVal;
-                    break;
-                case 'next':
-                    $next = $exSessionVal;
-                    break;
-                case 'notes':
-                    $notes = $exSessionVal;
-                    break;
-                default:
-                    echo "IGNORING: $exSessionKey: $exSessionVal <br>";
-                    break;
-            }
-        }
-        $exSes = array (
-            "datetime" => $datetime, 
-            "prg_id" => $prg_id, 
-            "usr_id" => $usr_id, 
-            "goal" => $goal, 
-            "performed" => $performed,
-            "repeat" => $repeat,
-            "next" => $next,
-            "notes" => $notes
-        );
-        array_push($exSessionsArray, $exSes);
-    }
-}
-else {
-    echo "ERROR: Json is NULL something is wrong<br>";
-}
+/* Create database, create tables, parse ./progression.json and
+/* ./exercise-session.json and populate tables */ 
 
 $servername = "localhost";
 $username = "root";
@@ -172,7 +65,7 @@ SQL;
     $db->exec($sql);
     echo "Table ExerciseSession created successfully<br>";
 
-
+    $progressionsArray = parseProgression();
     echo "Inserting progressions into Progression table<br>";
     foreach ($progressionsArray as $prg) {
         // Maybe this should be done with pdo prepare and execute but I tried
@@ -197,6 +90,7 @@ SQL;
 SQL;
     $db->exec($sql);
 
+    $exSessionsArray = parseExerciseSession();
     echo "Inserting exercise sessions into ExerciseSession table<br>";
     foreach ($exSessionsArray as $exSes) {
         // PDO Way
@@ -224,4 +118,117 @@ catch(PDOException $e) {
     echo $sql . "<br>" . $e->getMessage();
 }
 
+function parseProgression()
+{
+    echo "Reading ./progression.json <br>";
+    $progressions = file_get_contents("./progression.json");
+    $progressionsJson = json_decode($progressions, true);
+
+    $progressionsArray = array();
+
+    foreach ($progressionsJson as $prgTypeName => $prgTypeVal) {
+        $type = $prgTypeName;
+        foreach ($prgTypeVal as $prgPropertiesArray) {
+            /* Setting description, goal, media to default values so they can be */
+            /* left out in ./progression.json */ 
+            $description = null;
+            $goal = 888;
+            $media = null;
+            foreach ($prgPropertiesArray as $prgKey => $prgValue) {
+                /* print "$prgKey => $prgValue\n"; */
+                switch ($prgKey) {
+                case 'id':
+                    $id = $prgValue;
+                    break;
+                case 'type':
+                    $type = $prgValue;
+                    break;
+                case 'name':
+                    $name = "$prgValue";
+                    break;
+                case 'description':
+                    $description = $prgValue;
+                    break;
+                case 'goal':
+                    $goal = $prgValue;
+                    break;
+                case 'media':
+                    $media = $prgValue;
+                    break;
+                default:
+                    echo "IGNORING: $prgKey: $prgValue <br>";
+                    break;
+                }
+            }
+            $prg = array (
+                "id" => $id, 
+                "type" => $type, 
+                "name" => $name, 
+                "description" => $description, 
+                "goal" => $goal, 
+                "media" => $media
+            );
+            array_push($progressionsArray, $prg);
+        }
+    }
+    return $progressionsArray;
+}
+
+function parseExerciseSession()
+{
+    echo "Reading ./exercise-session.json <br>";
+    $exSessions = file_get_contents("./exercise-session.json");
+    $exSessionsJson = json_decode("$exSessions", true);
+    if ($exSessionsJson == null) {
+        echo "json_decode failed <br>";
+        return -1;
+    }
+    $exSessionsArray = array();
+
+    foreach ($exSessionsJson as $exSession) {
+        foreach ($exSession as $exSessionKey => $exSessionVal) {
+            switch ($exSessionKey) {
+            case 'datetime':
+                $datetime = $exSessionVal;
+                break;
+            case 'prg_id':
+                $prg_id = $exSessionVal;
+                break; 
+            case 'usr_id':
+                $usr_id = $exSessionVal;
+                break;
+            case 'goal':
+                $goal = $exSessionVal;
+                break;
+            case 'performed':
+                $performed = $exSessionVal;
+                break;
+            case 'repeat':
+                $repeat = $exSessionVal;
+                break;
+            case 'next':
+                $next = $exSessionVal;
+                break;
+            case 'notes':
+                $notes = $exSessionVal;
+                break;
+            default:
+                echo "IGNORING: $exSessionKey: $exSessionVal <br>";
+                break;
+            }
+        }
+        $exSes = array (
+            "datetime" => $datetime, 
+            "prg_id" => $prg_id, 
+            "usr_id" => $usr_id, 
+            "goal" => $goal, 
+            "performed" => $performed,
+            "repeat" => $repeat,
+            "next" => $next,
+            "notes" => $notes
+        );
+        array_push($exSessionsArray, $exSes);
+    }
+    return $exSessionsArray;
+}
 ?>
