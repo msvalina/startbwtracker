@@ -1,6 +1,17 @@
 <?php 
-/* Create database, create tables, parse ./progression.json and
-/* ./exercise-session.json and populate tables */ 
+/**
+ * Create database, tables, parse sample data from ./progression.json and
+ * ./exercise-session.json and populate tables
+ *
+ * PHP version 5.6
+ *
+ * @package   Startbwtracker
+ * @author    "Marijan Svalina <marijan.svalina@gmail.com>"
+ * @copyright Marijan Svalina, 25 Travanj, 2015, 
+ * @license   http://opensource.org/licenses/MIT
+ * @version   0.0.1
+ */
+
 
 $servername = "localhost";
 $username = "root";
@@ -65,9 +76,9 @@ SQL;
     $db->exec($sql);
     echo "Table ExerciseSession created successfully<br>";
 
-    $progressionsArray = parseProgression();
+    $progressions = parseProgression();
     echo "Inserting progressions into Progression table<br>";
-    foreach ($progressionsArray as $prg) {
+    foreach ($progressions as $prg) {
         // Maybe this should be done with pdo prepare and execute but I tried
         // and didn't get far, so fuck it it ain't wort my time. Maybe later.
         /* $sql = sprintf( */
@@ -79,52 +90,73 @@ SQL;
         /* $db->exec($sql); */
 
         // PDO Way
-        $stmnt = $db->prepare('INSERT INTO `Progression` (`id`, `type`, `name`,
-                               `description`, `goal`, `media`) VALUES (?,?,?,?,?,?)');
+        $stmnt = $db->prepare(
+            'INSERT INTO `Progression` (`id`, `type`, `name`, `description`,
+            `goal`, `media`) VALUES (?,?,?,?,?,?)'
+        );
         $stmnt->execute(array_values($prg));
     }
 
     $sql = <<<SQL
             INSERT INTO User (id, username, password, email) 
-            VALUES (1, "makiator", "123", "makivuk@g.com");
+            VALUES (1, "makiator", "123", "m@n.com");
 SQL;
     $db->exec($sql);
 
-    $exSessionsArray = parseExerciseSession();
+    $exSessions = parseExerciseSession();
     echo "Inserting exercise sessions into ExerciseSession table<br>";
-    foreach ($exSessionsArray as $exSes) {
+    foreach ($exSessions as $exSes) {
         // PDO Way
-        $stmnt = $db->prepare('INSERT INTO `ExerciseSession` (`datetime`, `prg_id`,
-                               `usr_id`, `goal`, `performed`, `repeat`, `next`, `notes`)
-                               VALUES (?,?,?,?,?,?,?,?)');
+        $stmnt = $db->prepare(
+            'INSERT INTO `ExerciseSession` (`datetime`, `prg_id`, `usr_id`,
+            `goal`, `performed`, `repeat`, `next`, `notes`) VALUES
+            (?,?,?,?,?,?,?,?)'
+        );
         $stmnt->execute(array_values($exSes));
     }
 
     $stmt = $db->query("SELECT * FROM `Progression`");
      
-    while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         echo "<br>";
         echo $row['id'].' '.$row['name'].' '; //etc...
     }
 
-    $stmt = $db->query("SELECT * FROM `ExerciseSession`");
+    $stmt = $db->query(
+        "SELECT ExerciseSession.id, ExerciseSession.datetime,
+        ExerciseSession.goal, ExerciseSession.performed, ExerciseSession.prg_id,
+        Progression.name, ExerciseSession.notes FROM ExerciseSession INNER JOIN
+        Progression ON ExerciseSession.prg_id=Progression.id;"
+    );
      
-    while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         echo "<br>";
-        echo $row['id'].' '.$row['prg_id'].' '; //etc...
+        echo $row['id'].' '.$row['prg_id'].' '.$row['name'].' '.$row['notes'];
     }
 }
 catch(PDOException $e) {
     echo $sql . "<br>" . $e->getMessage();
 }
 
+/**
+ * Parses ./progression.json return array of progressions
+ * 
+ * @return progressions array|null 
+ * @author Marijan Svalina
+ **/
 function parseProgression()
 {
     echo "Reading ./progression.json <br>";
-    $progressions = file_get_contents("./progression.json");
-    $progressionsJson = json_decode($progressions, true);
+    if (!file_exists("./progression.json")) {
+        return;
+    }
+    $file = file_get_contents("./progression.json");
+    $progressionsJson = json_decode($file, true);
+    if (progressionsJson == null) {
+        return;
+    }
 
-    $progressionsArray = array();
+    $progressions = array();
 
     foreach ($progressionsJson as $prgTypeName => $prgTypeVal) {
         $type = $prgTypeName;
@@ -168,12 +200,18 @@ function parseProgression()
                 "goal" => $goal, 
                 "media" => $media
             );
-            array_push($progressionsArray, $prg);
+            array_push($progressions, $prg);
         }
     }
-    return $progressionsArray;
+    return $progressions;
 }
 
+/**
+ * Parse ./exercise-session.json 
+ * 
+ * @return $exSessions array|null
+ * @author Marijan Svalina
+ **/
 function parseExerciseSession()
 {
     echo "Reading ./exercise-session.json <br>";
@@ -181,9 +219,9 @@ function parseExerciseSession()
     $exSessionsJson = json_decode("$exSessions", true);
     if ($exSessionsJson == null) {
         echo "json_decode failed <br>";
-        return -1;
+        return; 
     }
-    $exSessionsArray = array();
+    $exSessions = array();
 
     foreach ($exSessionsJson as $exSession) {
         foreach ($exSession as $exSessionKey => $exSessionVal) {
@@ -227,8 +265,8 @@ function parseExerciseSession()
             "next" => $next,
             "notes" => $notes
         );
-        array_push($exSessionsArray, $exSes);
+        array_push($exSessions, $exSes);
     }
-    return $exSessionsArray;
+    return $exSessions;
 }
 ?>
