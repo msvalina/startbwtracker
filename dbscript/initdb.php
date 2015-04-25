@@ -77,24 +77,26 @@ SQL;
     echo "Table ExerciseSession created successfully<br>";
 
     $progressions = parseProgression();
-    echo "Inserting progressions into Progression table<br>";
-    foreach ($progressions as $prg) {
-        // Maybe this should be done with pdo prepare and execute but I tried
-        // and didn't get far, so fuck it it ain't wort my time. Maybe later.
-        /* $sql = sprintf( */
-        /*     'INSERT INTO Progression (%s) VALUES ("%s")', */
-        /*     implode(',',array_keys($prg)), */
-        /*        // prevent SQL injection with imploding "" */
-        /*     implode('","',array_values($prg)) */
-        /* ); */
-        /* $db->exec($sql); */
+    if (!$progressions == null) {
+        echo "Inserting progressions into Progression table<br>";
+        foreach ($progressions as $prg) {
+            // Maybe this should be done with pdo prepare and execute but I tried
+            // and didn't get far, so fuck it it ain't wort my time. Maybe later.
+            /* $sql = sprintf( */
+            /*     'INSERT INTO Progression (%s) VALUES ("%s")', */
+            /*     implode(',',array_keys($prg)), */
+            /*        // prevent SQL injection with imploding "" */
+            /*     implode('","',array_values($prg)) */
+            /* ); */
+            /* $db->exec($sql); */
 
-        // PDO Way
-        $stmnt = $db->prepare(
-            'INSERT INTO `Progression` (`id`, `type`, `name`, `description`,
-            `goal`, `media`) VALUES (?,?,?,?,?,?)'
-        );
-        $stmnt->execute(array_values($prg));
+            // PDO Way
+            $stmnt = $db->prepare(
+                'INSERT INTO `Progression` (`id`, `type`, `name`, `description`,
+                `goal`, `media`) VALUES (?,?,?,?,?,?)'
+            );
+            $stmnt->execute(array_values($prg));
+        }
     }
 
     $sql = <<<SQL
@@ -104,15 +106,17 @@ SQL;
     $db->exec($sql);
 
     $exSessions = parseExerciseSession();
-    echo "Inserting exercise sessions into ExerciseSession table<br>";
-    foreach ($exSessions as $exSes) {
-        // PDO Way
-        $stmnt = $db->prepare(
-            'INSERT INTO `ExerciseSession` (`datetime`, `prg_id`, `usr_id`,
-            `goal`, `performed`, `repeat`, `next`, `notes`) VALUES
-            (?,?,?,?,?,?,?,?)'
-        );
-        $stmnt->execute(array_values($exSes));
+    if (!$exSessions == null) {
+        echo "Inserting exercise sessions into ExerciseSession table<br>";
+        foreach ($exSessions as $exSes) {
+            // PDO Way
+            $stmnt = $db->prepare(
+                'INSERT INTO `ExerciseSession` (`datetime`, `prg_id`, `usr_id`,
+                `goal`, `performed`, `repeat`, `next`, `notes`) VALUES
+                (?,?,?,?,?,?,?,?)'
+            );
+            $stmnt->execute(array_values($exSes));
+        }
     }
 
     $stmt = $db->query("SELECT * FROM `Progression`");
@@ -148,11 +152,13 @@ function parseProgression()
 {
     echo "Reading ./progression.json <br>";
     if (!file_exists("./progression.json")) {
+        echo "./progression.json does not exists <br>";
         return;
     }
     $file = file_get_contents("./progression.json");
     $progressionsJson = json_decode($file, true);
-    if (progressionsJson == null) {
+    if ($progressionsJson == null) {
+        echo "json_decode failed <br>";
         return;
     }
 
@@ -215,8 +221,12 @@ function parseProgression()
 function parseExerciseSession()
 {
     echo "Reading ./exercise-session.json <br>";
-    $exSessions = file_get_contents("./exercise-session.json");
-    $exSessionsJson = json_decode("$exSessions", true);
+    if (!file_exists("./exercise-session.json")) {
+        echo "./exercise-session.json does not exists <br>";
+        return;
+    }
+    $file = file_get_contents("./exercise-session.json");
+    $exSessionsJson = json_decode("$file", true);
     if ($exSessionsJson == null) {
         echo "json_decode failed <br>";
         return; 
