@@ -36,8 +36,10 @@ try {
           `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
           `type` varchar(30) NOT NULL,
           `name` varchar(50) NOT NULL,
+          `position` int(11) NOT NULL,
           `description` text,
           `goal` int(11) NOT NULL,
+          `custom` int(11) NOT NULL DEFAULT 0,
           `media` text
         );
 SQL;
@@ -93,8 +95,8 @@ SQL;
 
             // PDO Way
             $stmnt = $db->prepare(
-                'INSERT INTO `Progression` (`id`, `type`, `name`, `description`,
-                `goal`, `media`) VALUES (?,?,?,?,?,?)'
+                'INSERT INTO `Progression` (`type`, `name`, `position`,
+                `description`, `goal`, `media`) VALUES (?,?,?,?,?,?)'
             );
             $stmnt->execute(array_values($prg));
         }
@@ -172,7 +174,7 @@ function parseProgression()
      *  "Squats": [
      *      {
      *          "name": "Deep Assisted Squats",
-     *          "id": 105
+     *          "position": 105
      *      },
      */
     foreach ($progressionsJson as $prgTypeName => $prgTypeVal) {
@@ -186,14 +188,14 @@ function parseProgression()
             foreach ($prgPropertiesArray as $prgKey => $prgValue) {
                 /* print "$prgKey => $prgValue\n"; */
                 switch ($prgKey) {
-                case 'id':
-                    $id = $prgValue;
-                    break;
                 case 'type':
                     $type = $prgValue;
                     break;
                 case 'name':
                     $name = "$prgValue";
+                    break;
+                case 'position':
+                    $position = $prgValue;
                     break;
                 case 'description':
                     $description = $prgValue;
@@ -210,9 +212,9 @@ function parseProgression()
                 }
             }
             $prg = array (
-                "id" => $id, 
                 "type" => $type, 
                 "name" => $name, 
+                "position" => $position, 
                 "description" => $description, 
                 "goal" => $goal, 
                 "media" => $media
