@@ -2,14 +2,15 @@
 /**
  * Create database, tables, parse sample data from ./progression.json and
  * ./exercise-session.json and populate tables
+ * This script should not be in server *root* or anywhere where users can
+ * run it!
  *
  * PHP version 5.6
  *
  * @package   Startbwtracker
- * @author    "Marijan Svalina <marijan.svalina@gmail.com>"
- * @copyright Marijan Svalina, 25 Travanj, 2015, 
- * @license   http://opensource.org/licenses/MIT
- * @version   0.0.1
+ * @author    Marijan Svalina <marijan.svalina@gmail.com>
+ * @copyright 2015 Marijan Svalina
+ * @license   http://opensource.org/licenses/MIT MIT
  */
 
 
@@ -163,7 +164,17 @@ function parseProgression()
     }
 
     $progressions = array();
-
+    
+    /**
+     * Assumption: ./progression.json is an unorderd list of objects
+     * (progression types) with an ordered list of objects in which there at
+     * least these key/value pairs:
+     *  "Squats": [
+     *      {
+     *          "name": "Deep Assisted Squats",
+     *          "id": 105
+     *      },
+     */
     foreach ($progressionsJson as $prgTypeName => $prgTypeVal) {
         $type = $prgTypeName;
         foreach ($prgTypeVal as $prgPropertiesArray) {
@@ -232,7 +243,21 @@ function parseExerciseSession()
         return; 
     }
     $exSessions = array();
-
+    
+    /**
+     * Assumption: ./exercise-session.json is an unorderd list of objects
+     * with these key/value pairs:
+     *  {
+     *      "datetime": "2015-04-20T18:45:42.222Z",
+     *      "prg_id": 560,
+     *      "usr_id": 1,
+     *      "goal": 666,
+     *      "performed": 666,
+     *      "repeat": false,
+     *      "next": false,
+     *      "notes": "fancy note"
+     *  },
+     */
     foreach ($exSessionsJson as $exSession) {
         foreach ($exSession as $exSessionKey => $exSessionVal) {
             switch ($exSessionKey) {
@@ -279,4 +304,3 @@ function parseExerciseSession()
     }
     return $exSessions;
 }
-?>
