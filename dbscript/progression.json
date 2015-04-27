@@ -485,27 +485,28 @@
         },
         {
             "name": "Vertical Rows",
+            "position": 736,
+            "description": null,
+            "custom": 1
+        },
+        {
+            "name": "Advanced Tuck Knees Rows",
             "position": 740,
             "description": null
         },
         {
-            "name": "Advanced Tuck Knees Rows",
+            "name": "One Tuck Knee One Leg Extended Rows",
             "position": 745,
             "description": null
         },
         {
-            "name": "One Tuck Knee One Leg Extended Rows",
+            "name": "Straddle Legs Front Lever Rows",
             "position": 750,
             "description": null
         },
         {
-            "name": "Straddle Legs Front Lever Rows",
-            "position": 755,
-            "description": null
-        },
-        {
             "name": "Front Lever Rows",
-            "position": 760,
+            "position": 755,
             "description": null
         }
     ],
@@ -574,9 +575,10 @@
         },
         {
             "name": "Hollow Hold",
-            "position": 845,
+            "position": 841,
             "description": null,
-            "goal": 60
+            "goal": 60,
+            "custom": 1
 
         }
     ]

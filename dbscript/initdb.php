@@ -96,7 +96,8 @@ SQL;
             // PDO Way
             $stmnt = $db->prepare(
                 'INSERT INTO `Progression` (`type`, `name`, `position`,
-                `description`, `goal`, `media`) VALUES (?,?,?,?,?,?)'
+                `description`, `goal`, `custom`, `media`) VALUES
+                (?,?,?,?,?,?,?)'
             );
             $stmnt->execute(array_values($prg));
         }
@@ -185,6 +186,7 @@ function parseProgression()
             $description = null;
             $goal = 888;
             $media = null;
+            $custom = 0;
             foreach ($prgPropertiesArray as $prgKey => $prgValue) {
                 /* print "$prgKey => $prgValue\n"; */
                 switch ($prgKey) {
@@ -203,6 +205,9 @@ function parseProgression()
                 case 'goal':
                     $goal = $prgValue;
                     break;
+                case 'custom':
+                    $custom = $prgValue;
+                    break;
                 case 'media':
                     $media = $prgValue;
                     break;
@@ -216,7 +221,8 @@ function parseProgression()
                 "name" => $name, 
                 "position" => $position, 
                 "description" => $description, 
-                "goal" => $goal, 
+                "goal" => $goal,
+                "custom" => $custom,
                 "media" => $media
             );
             array_push($progressions, $prg);
