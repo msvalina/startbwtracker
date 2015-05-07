@@ -283,6 +283,14 @@
             "name": "One Arm Hanging Leg Raises",
             "position": 460,
             "description": null
+        },
+        {
+            "comment": "Hanging Fan Raises: This is example of overriding default exercise with my custom final goal, for me it should be presented instead of default version, bc it has same position",
+            "name": "Hanging Fan Raises",
+            "position": 450,
+            "description": null,
+            "goal": 999,
+            "custom": 1
         }
 
     ],
