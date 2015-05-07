@@ -82,6 +82,12 @@ SQL;
     $progressions = parseProgression();
     if (!$progressions == null) {
         echo "Inserting progressions into Progression table<br>";
+        // PDO Way
+        $stmnt = $db->prepare(
+            'INSERT INTO `Progression` (`type`, `name`, `position`,
+            `description`, `goal`, `custom`, `media`) VALUES
+            (?,?,?,?,?,?,?)'
+        );
         foreach ($progressions as $prg) {
             // Maybe this should be done with pdo prepare and execute but I tried
             // and didn't get far, so fuck it it ain't wort my time. Maybe later.
@@ -93,12 +99,6 @@ SQL;
             /* ); */
             /* $db->exec($sql); */
 
-            // PDO Way
-            $stmnt = $db->prepare(
-                'INSERT INTO `Progression` (`type`, `name`, `position`,
-                `description`, `goal`, `custom`, `media`) VALUES
-                (?,?,?,?,?,?,?)'
-            );
             $stmnt->execute(array_values($prg));
         }
     }
@@ -112,13 +112,13 @@ SQL;
     $exSessions = parseExerciseSession();
     if (!$exSessions == null) {
         echo "Inserting exercise sessions into ExerciseSession table<br>";
+        // PDO Way
+        $stmnt = $db->prepare(
+            'INSERT INTO `ExerciseSession` (`datetime`, `prg_id`, `usr_id`,
+            `goal`, `performed`, `repeat`, `next`, `notes`) VALUES
+            (?,?,?,?,?,?,?,?)'
+        );
         foreach ($exSessions as $exSes) {
-            // PDO Way
-            $stmnt = $db->prepare(
-                'INSERT INTO `ExerciseSession` (`datetime`, `prg_id`, `usr_id`,
-                `goal`, `performed`, `repeat`, `next`, `notes`) VALUES
-                (?,?,?,?,?,?,?,?)'
-            );
             $stmnt->execute(array_values($exSes));
         }
     }
