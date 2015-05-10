@@ -29,24 +29,6 @@ try {
     echo "Database created successfully<br>";
     $db->exec("USE $database;");
     
-    // sql to create Progression table
-    $sql = <<<SQL
-        DROP TABLE IF EXISTS `Progression`;
-        CREATE TABLE `Progression` (
-          `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-          `type` varchar(30) NOT NULL,
-          `name` varchar(50) NOT NULL,
-          `position` int(11) NOT NULL,
-          `description` text,
-          `goal` int(11) NOT NULL,
-          `custom` int(11) NOT NULL DEFAULT 0,
-          `media` text
-        );
-SQL;
-    // use exec() because no results are returned
-    $db->exec($sql);
-    echo "Table Progression created successfully<br>";
-
     // sql to create Users table
     $sql = <<<SQL
         DROP TABLE IF EXISTS `User`;
@@ -57,9 +39,29 @@ SQL;
           `email` varchar(50) NOT NULL
         );
 SQL;
+    // use exec() because no results are returned
     $db->exec($sql);
     echo "Table User created successfully<br>";
 
+    // sql to create Progression table
+    $sql = <<<SQL
+        DROP TABLE IF EXISTS `Progression`;
+        CREATE TABLE `Progression` (
+          `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+          `type` varchar(30) NOT NULL,
+          `name` varchar(50) NOT NULL,
+          `position` int(11) NOT NULL,
+          `description` text,
+          `goal` int(11) NOT NULL,
+          `custom` int(11) NULL DEFAULT NULL,
+          `media` text,
+          FOREIGN KEY (custom) REFERENCES User(id)
+        );
+SQL;
+    $db->exec($sql);
+    echo "Table Progression created successfully<br>";
+
+    // sql to create ExerciseSession table
     $sql = <<<SQL
         DROP TABLE IF EXISTS `ExerciseSession`;
         CREATE TABLE `ExerciseSession` (
@@ -79,6 +81,14 @@ SQL;
     $db->exec($sql);
     echo "Table ExerciseSession created successfully<br>";
 
+    echo "Inserting users into User table <br>";
+    $sql = <<<SQL
+            INSERT INTO User (id, username, password, email) 
+            VALUES (1, "makiator", "123", "m@n.com");
+SQL;
+    $db->exec($sql);
+
+
     $progressions = parseProgression();
     if (!$progressions == null) {
         echo "Inserting progressions into Progression table<br>";
@@ -89,25 +99,9 @@ SQL;
             (?,?,?,?,?,?,?)'
         );
         foreach ($progressions as $prg) {
-            // Maybe this should be done with pdo prepare and execute but I tried
-            // and didn't get far, so fuck it it ain't wort my time. Maybe later.
-            /* $sql = sprintf( */
-            /*     'INSERT INTO Progression (%s) VALUES ("%s")', */
-            /*     implode(',',array_keys($prg)), */
-            /*        // prevent SQL injection with imploding "" */
-            /*     implode('","',array_values($prg)) */
-            /* ); */
-            /* $db->exec($sql); */
-
             $stmnt->execute(array_values($prg));
         }
     }
-
-    $sql = <<<SQL
-            INSERT INTO User (id, username, password, email) 
-            VALUES (1, "makiator", "123", "m@n.com");
-SQL;
-    $db->exec($sql);
 
     $exSessions = parseExerciseSession();
     if (!$exSessions == null) {
@@ -186,7 +180,7 @@ function parseProgression()
             $description = null;
             $goal = 888;
             $media = null;
-            $custom = 0;
+            $custom = null;
             foreach ($prgPropertiesArray as $prgKey => $prgValue) {
                 /* print "$prgKey => $prgValue\n"; */
                 switch ($prgKey) {
