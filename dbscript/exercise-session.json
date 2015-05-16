@@ -232,7 +232,8 @@
         "repeat": false,
         "next": true,
         "notes": "htio jos jednom potvrdit da mogu!!! badassss"
-    }, {
+    },
+    {
         "datetime": "2015-04-20T18:45:42.222Z",
         "prg_id": 66,
         "prg_name": "Incline One Arm Push Ups",
@@ -319,6 +320,348 @@
         "repeat": false,
         "next": false,
         "notes": "fora je vjezba"
+    },
+    {
+        "datetime": "2015-04-27",
+        "prg_id": 22,
+        "prg_name": "Sternum Pull Ups",
+        "usr_id": 1,
+        "goal": 555,
+        "performed": 555,
+        "repeat": true,
+        "next": false,
+        "notes": "losa forma"
+    },
+    {
+        "datetime": "2015-04-27",
+        "prg_id": 36,
+        "prg_name": "Wall Half Handstand Push Ups",
+        "usr_id": 1,
+        "goal": 887,
+        "performed": 854,
+        "repeat": true,
+        "next": false,
+        "notes": "prebacio na nizu"
+    },
+    {
+        "datetime": "2015-04-27",
+        "prg_id": 53,
+        "prg_name": "Hanging Fan Raises",
+        "usr_id": 1,
+        "goal": 999,
+        "performed": 996,
+        "repeat": true,
+        "next": false,
+        "notes": "prebacio zadnja tri na nizu i napravio sest"
+    },
+    {
+        "datetime": "2015-04-27",
+        "prg_id": 80,
+        "prg_name": "Modified Russian Dips",
+        "usr_id": 1,
+        "goal": 776,
+        "performed": 766,
+        "repeat": true,
+        "next": false,
+        "notes": "xx"
+    },
+    {
+        "datetime": "2015-04-29",
+        "prg_id": 22,
+        "prg_name": "Sternum Pull Ups",
+        "usr_id": 1,
+        "goal": 555,
+        "performed": 555,
+        "repeat": false,
+        "next": false,
+        "notes": "ouujea"
+    },
+    {
+        "datetime": "2015-04-29",
+        "prg_id": 36,
+        "prg_name": "Wall Half Handstand Push Ups",
+        "usr_id": 1,
+        "goal": 887,
+        "performed": 744,
+        "repeat": true,
+        "next": false,
+        "notes": "prebacio na nizu 44, lose spavao"
+    },
+    {
+        "datetime": "2015-04-29",
+        "prg_id": 53,
+        "prg_name": "Hanging Fan Raises",
+        "usr_id": 1,
+        "goal": 999,
+        "performed": 999,
+        "repeat": true,
+        "next": false,
+        "notes": ""
+    },
+    {
+        "datetime": "2015-04-29",
+        "prg_id": 66,
+        "prg_name": "Incline One Arm Push Ups",
+        "usr_id": 1,
+        "goal": 776,
+        "performed": 776,
+        "repeat": false,
+        "next": false,
+        "notes": ""
+    },
+    {
+        "datetime": "2015-04-29",
+        "prg_id": 90,
+        "prg_name": "Vertical Rows",
+        "usr_id": 1,
+        "goal": 666,
+        "performed": 654,
+        "repeat": true,
+        "next": false,
+        "notes": "do the ugliest thing first! pistols!!"
+    },
+    {
+        "datetime": "2015-05-04",
+        "prg_id": 10,
+        "prg_name": "One Legged Squats",
+        "usr_id": 1,
+        "goal": 887,
+        "performed": 887,
+        "repeat": false,
+        "next": false,
+        "notes": "fak jea, siroko ruke pa usko"
+    },
+    {
+        "datetime": "2015-05-04",
+        "prg_id": 22,
+        "prg_name": "Sternum Pull Ups",
+        "usr_id": 1,
+        "goal": 655,
+        "performed": 655,
+        "repeat": true,
+        "next": false,
+        "notes": ""
+    },
+    {
+        "datetime": "2015-05-04",
+        "prg_id": 53,
+        "prg_name": "Hanging Fan Raises",
+        "usr_id": 1,
+        "goal": 999,
+        "performed": 996,
+        "repeat": true,
+        "next": false,
+        "notes": "na kraju 6 sa savijenim koljenima"
+    },
+    {
+        "datetime": "2015-05-04",
+        "prg_id": 36,
+        "prg_name": "Wall Half Handstand Push Ups",
+        "usr_id": 1,
+        "goal": 887,
+        "performed": 755,
+        "repeat": true,
+        "next": false,
+        "notes": "jos 5 diamonda"
+    },
+    {
+        "datetime": "2015-05-04",
+        "prg_id": 90,
+        "prg_name": "Vertical Rows",
+        "usr_id": 1,
+        "goal": 666,
+        "performed": 654,
+        "repeat": true,
+        "next": false,
+        "notes": ""
+    },
+    {
+        "datetime": "2015-05-08",
+        "prg_id": 10,
+        "prg_name": "One Legged Squats",
+        "usr_id": 1,
+        "goal": 888,
+        "performed": 888,
+        "repeat": true,
+        "next": false,
+        "notes": ""
+    },
+    {
+        "datetime": "2015-05-08",
+        "prg_id": 36,
+        "prg_name": "Wall Half Handstand Push Ups",
+        "usr_id": 1,
+        "goal": 887,
+        "performed": 665,
+        "repeat": true,
+        "next": false,
+        "notes": "dlanovi nikako preko crte, na pola crte inače boli vrat"
+    },
+    {
+        "datetime": "2015-05-08",
+        "prg_id": 22,
+        "prg_name": "Sternum Pull Ups",
+        "usr_id": 1,
+        "goal": 665,
+        "performed": 664,
+        "repeat": true,
+        "next": false,
+        "notes": ""
+    },
+    {
+        "datetime": "2015-05-08",
+        "prg_id": 53,
+        "prg_name": "Hanging Fan Raises",
+        "usr_id": 1,
+        "goal": 999,
+        "performed": 996,
+        "repeat": true,
+        "next": false,
+        "notes": ""
+    },
+    {
+        "datetime": "2015-05-08",
+        "prg_id": 90,
+        "prg_name": "Vertical Rows",
+        "usr_id": 1,
+        "goal": 666,
+        "performed": 665,
+        "repeat": true,
+        "next": false,
+        "notes": ""
+    },
+    {
+        "datetime": "2015-05-11",
+        "prg_id": 10,
+        "prg_name": "One Legged Squats",
+        "usr_id": 1,
+        "goal": 888,
+        "performed": 888,
+        "repeat": true,
+        "next": false,
+        "notes": "dugacki intervali izmedu"
+    },
+    {
+        "datetime": "2015-05-11",
+        "prg_id": 22,
+        "prg_name": "Sternum Pull Ups",
+        "usr_id": 1,
+        "goal": 665,
+        "performed": 665,
+        "repeat": false,
+        "next": false,
+        "notes": ""
+    },
+    {
+        "datetime": "2015-05-11",
+        "prg_id": 36,
+        "prg_name": "Wall Half Handstand Push Ups",
+        "usr_id": 1,
+        "goal": 887,
+        "performed": 865,
+        "repeat": true,
+        "next": false,
+        "notes": ""
+    },
+    {
+        "datetime": "2015-05-11",
+        "prg_id": 53,
+        "prg_name": "Hanging Fan Raises",
+        "usr_id": 1,
+        "goal": 999,
+        "performed": 999,
+        "repeat": false,
+        "next": true,
+        "notes": ""
+    },
+    {
+        "datetime": "2015-05-12",
+        "prg_id": 90,
+        "prg_name": "Vertical Rows",
+        "usr_id": 1,
+        "goal": 666,
+        "performed": 666,
+        "repeat": true,
+        "next": false,
+        "notes": ""
+    },
+    {
+        "datetime": "2015-05-12",
+        "prg_id": 66,
+        "prg_name": "Incline One Arm Push Ups",
+        "usr_id": 1,
+        "goal": 777,
+        "performed": 777,
+        "repeat": false,
+        "next": false,
+        "notes": "forma se popravlja"
+    },
+    {
+        "datetime": "2015-05-15",
+        "prg_id": 10,
+        "prg_name": "One Legged Squats",
+        "usr_id": 1,
+        "goal": 888,
+        "performed": 888,
+        "repeat": false,
+        "next": true,
+        "notes": "fakkk jeaa, see it bf it happens, umjesto balanciranja, vizualiziranje buducnosti, 3D person perspective"
+    },
+    {
+        "datetime": "2015-05-15",
+        "prg_id": 22,
+        "prg_name": "Sternum Pull Ups",
+        "usr_id": 1,
+        "goal": 666,
+        "performed": 664,
+        "repeat": true,
+        "next": false,
+        "Feature": "FD: repeat chkbox se pojavi sam kad nije dostignut goal!?",
+        "notes": "FD: repeat chkbox se pojavi sam kad nije dostignut goal"
+    },
+    {
+        "datetime": "2015-05-15",
+        "prg_id": 36,
+        "prg_name": "Wall Half Handstand Push Ups",
+        "usr_id": 1,
+        "goal": 887,
+        "performed": 867,
+        "repeat": true,
+        "next": false,
+        "notes": ""
+    },
+    {
+        "datetime": "2015-05-15",
+        "prg_id": 51,
+        "prg_name": "Hanging V Raises windshield wipers",
+        "usr_id": 1,
+        "goal": 444,
+        "performed": 444,
+        "repeat": true,
+        "next": true,
+        "notes": "Ako je jedan lijevo pa desno"
+    },
+    {
+        "datetime": "2015-05-15",
+        "prg_id": 80,
+        "prg_name": "Modified Russian Dips",
+        "usr_id": 1,
+        "goal": 776,
+        "performed": 776,
+        "repeat": true,
+        "next": false,
+        "notes": ""
+    },
+    {
+        "datetime": "2015-05-15",
+        "prg_id": 90,
+        "prg_name": "Vertical Rows",
+        "usr_id": 1,
+        "goal": 666,
+        "performed": 653,
+        "repeat": true,
+        "next": false,
+        "notes": ""
     }
 
 ]
