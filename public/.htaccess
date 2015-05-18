@@ -1,0 +1,14 @@
+# Single point of entry to app.
+# APACHE %DOCUMENT_ROOT in openshift is set to public/ dir if it exists see:
+# https://developers.openshift.com/en/php-repository-layout.html#document_root
+
+# Enable mod_rewrite
+RewriteEngine on
+# If file does not exists
+RewriteCond %{DOCUMENT_ROOT}%{REQUEST_FILENAME} !-f
+# If dir does not exists
+RewriteCond %{DOCUMENT_ROOT}%{REQUEST_FILENAME} !-d
+# Rewrite url. Match everything, save to $1 and redirect to index.php
+RewriteRule ^(.*)$ index.php?rt=$1 [L,QSA]
+# Flags: L (last - stop processing rules)
+# Flags: QSA (append query string from request to substituted URL)
