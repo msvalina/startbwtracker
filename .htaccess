@@ -1,5 +1,5 @@
 # Single point of entry to app.
-# APACHE %DOCUMENT_ROOT in openshift is set to public/ dir if it exists see:
+# See APACHE %DOCUMENT_ROOT configuration in openshift
 # https://developers.openshift.com/en/php-repository-layout.html#document_root
 
 # Enable mod_rewrite
