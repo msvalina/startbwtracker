@@ -662,6 +662,138 @@
         "repeat": true,
         "next": false,
         "notes": ""
+    },
+    {
+        "datetime": "2015-05-18",
+        "prg_id": 11,
+        "prg_name": "Renegade Pistols",
+        "usr_id": 1,
+        "goal": 444,
+        "performed": 444,
+        "repeat": false,
+        "next": false,
+        "notes": "nije losa vjezba, samo jos ne znam tocno formu"
+    },
+    {
+        "datetime": "2015-05-18",
+        "prg_id": 22,
+        "prg_name": "Sternum Pull Ups",
+        "usr_id": 1,
+        "goal": 666,
+        "performed": 666,
+        "repeat": true,
+        "next": false,
+        "notes": "malo je falilo"
+    },
+    {
+        "datetime": "2015-05-18",
+        "prg_id": 36,
+        "prg_name": "Wall Half Handstand Push Ups",
+        "usr_id": 1,
+        "goal": 887,
+        "performed": 887,
+        "repeat": true,
+        "next": false,
+        "notes": ""
+    },
+    {
+        "datetime": "2015-05-20",
+        "prg_id": 11,
+        "prg_name": "Renegade Pistols",
+        "usr_id": 1,
+        "goal": 544,
+        "performed": 544,
+        "repeat": false,
+        "next": false,
+        "notes": ""
+    },
+    {
+        "datetime": "2015-05-20",
+        "prg_id": 22,
+        "prg_name": "Sternum Pull Ups",
+        "usr_id": 1,
+        "goal": 666,
+        "performed": 666,
+        "repeat": true,
+        "next": false,
+        "notes": ""
+    },
+    {
+        "datetime": "2015-05-20",
+        "prg_id": 36,
+        "prg_name": "Wall Half Handstand Push Ups",
+        "usr_id": 1,
+        "goal": 887,
+        "performed": 477,
+        "repeat": true,
+        "next": false,
+        "notes": "forma mi je losa, radim kao crossfiter posavijan"
+    },
+    {
+        "datetime": "2015-05-20",
+        "prg_id": 66,
+        "prg_name": "Incline One Arm Push Ups",
+        "usr_id": 1,
+        "goal": 888,
+        "performed": 888,
+        "repeat": false,
+        "next": true,
+        "notes": "imam snage pa sam preskocio par serija"
+    },
+    {
+        "datetime": "2015-05-22",
+        "prg_id": 11,
+        "prg_name": "Renegade Pistols",
+        "usr_id": 1,
+        "goal": 554,
+        "performed": 554,
+        "repeat": false,
+        "next": false,
+        "notes": "idu ok"
+    },
+    {
+        "datetime": "2015-05-22",
+        "prg_id": 22,
+        "prg_name": "Sternum Pull Ups",
+        "usr_id": 1,
+        "goal": 666,
+        "performed": 764,
+        "repeat": true,
+        "next": false,
+        "notes": "odmarao lakat zbog povrede kod obaranja ruku"
+    },
+    {
+        "datetime": "2015-05-22",
+        "prg_id": 36,
+        "prg_name": "Wall Half Handstand Push Ups",
+        "usr_id": 1,
+        "goal": 333,
+        "performed": 333,
+        "repeat": true,
+        "next": false,
+        "notes": "Potpuno ravan, glava i oči okomiti na pod"
+    },
+    {
+        "datetime": "2015-05-22",
+        "prg_id": 80,
+        "prg_name": "Modified Russian Dips",
+        "usr_id": 1,
+        "goal": 776,
+        "performed": 776,
+        "repeat": true,
+        "next": false,
+        "notes": "radio obicne, zbog povrede lakta, jako sporo"
+    },
+    {
+        "datetime": "2015-05-22",
+        "prg_id": 90,
+        "prg_name": "Vertical Rows",
+        "usr_id": 1,
+        "goal": 666,
+        "performed": 663,
+        "repeat": true,
+        "next": false,
+        "notes": "uvijek je tesko naci snagu na kraju za rowove"
     }
 
 ]
