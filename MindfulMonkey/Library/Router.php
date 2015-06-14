@@ -11,7 +11,7 @@ namespace MindfulMonkey\Library;
 class Router
 {
     protected $routes = array();
-    protected $baseName;
+    protected $baseName = null;
 
     public function __construct()
     {
@@ -38,9 +38,9 @@ class Router
     }
 
     /**
-     * Match incoming url request with mapped routes
+     * Match incomig url request with mapped routes
      * 
-     * @return string match
+     * @return array target with target and regex named subpatterns
      */
     public function match()
     {
@@ -50,44 +50,41 @@ class Router
         if ($_SERVER['REQUEST_URI']) {
             echo "Searching for: <br>";
             var_dump($_SERVER['REQUEST_URI']);
-            $method = $_SERVER['REQUEST_METHOD'];
             $uri = $_SERVER['REQUEST_URI'];
             echo "<br>";
-            $uri = preg_replace($this->baseName, '', $uri);
+            if (!$this->baseName == null) {
+                $uri = preg_replace($this->baseName, '', $uri);
+            }
             var_dump($uri);
             echo "<br>";
             echo "<br>";
-            foreach ($this->routes as $route) {
-                foreach ($route as $key => $value) {
-                    echo $key; echo ' => '; echo $value; echo "<br>";
-                    if ($key == "method") {
-                        if ($value == $method) {
-                            $isSuportedMethod = true;
-                        }
-                        else {
-                            break;
-                        }
-                    }
-                    if ($key == "pattern" && $isSuportedMethod) {
-                        $preg_match = preg_match($value, $uri, $matches);
-                        var_dump($preg_match);
-                        if ($preg_match === 1 ) {
-                            echo '<br>';
-                            var_dump($matches);
-                            foreach ($matches as $key => $value) {
-                                if (!is_numeric($key)) {
-                                    $target[$key] = $value;
-                                }
+            foreach ($this->routes as $rt) {
+                if ($rt["method"] == $_SERVER['REQUEST_METHOD'] ) {
+                    $isSuportedMethod = true;
+                } else {
+                    continue;
+                }
+                if ($isSuportedMethod) {
+                    var_dump($rt["pattern"]);
+                    $preg_match = preg_match($rt["pattern"], $uri, $matches);
+                    var_dump($preg_match);
+                    if ($preg_match === 1 ) {
+                        echo 'this is matches <br>';
+                        var_dump($matches);
+                        $target["target"] = $rt["target"];
+                        foreach ($matches as $key => $value) {
+                            if (!is_numeric($key)) {
+                                $target[$key] = $value;
                             }
                         }
-                    }
-                    if ($key == "target" && $preg_match === 1) {
-                        $target[$key] = $value;
+                        // Exit as soon as match is found
+                        break;
                     }
                 }
+                echo "<br> Next match <br>";
             }
         }
-        echo '<br>';
+        echo '<br> dumping target <br>';
         var_dump($target);
 
         return $target;
