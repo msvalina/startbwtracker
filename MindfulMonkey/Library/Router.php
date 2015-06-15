@@ -35,13 +35,13 @@ class Router
     }
 
     /**
-     * Map URL routes to controller and action 
+     * Map URL routes to controller and action
      *
      * @param string $method  HTTP method
      * @param string $pattern regex pattern that uniquely identifies $target
      * @param string $target  controller and action in form of
      *                        controller#action
-     * 
+     *
      * @return void
      */
     public function map($method, $pattern, $target)
@@ -58,7 +58,7 @@ class Router
 
     /**
      * Match incomig URL request with mapped routes
-     * 
+     *
      * @return array target with target and regex named subpatterns
      */
     public function match()
@@ -120,5 +120,5 @@ class Router
     {
         $this->baseName = $name;
     }
-    
-} 
+
+}

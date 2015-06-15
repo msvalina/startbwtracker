@@ -24,7 +24,7 @@ $router->map('GET', '~^/progression/(?P<prg_id>\d+)/edit/?$~', 'progression#edit
 /* // Update a specific progression */
 $router->map('PUT', '~^/progression/(?P<prg_id>\d+)/?$~', 'progression#update');
 /* // Delete a specific progression */
-$router->map('DELETE', '~^/progression/(?P<prg_id>\d+)/$~?', 'progression#delete');
+$router->map('DELETE', '~^/progression/(?P<prg_id>\d+)/?$~', 'progression#delete');
 
 // Display a list of all exercise sessions
 $router->map('GET', '~^/exercise/?$~', 'exercise#index');

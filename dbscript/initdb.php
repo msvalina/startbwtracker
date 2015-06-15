@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
  * Create database, tables, parse sample data from ./progression.json and
  * ./exercise-session.json and populate tables
@@ -28,7 +28,7 @@ try {
     $db->exec($sql);
     echo "Database created successfully<br>";
     $db->exec("USE $database;");
-    
+
     // sql to create Users table
     $sql = <<<SQL
         DROP TABLE IF EXISTS `User`;
@@ -73,7 +73,7 @@ SQL;
           `next` tinyint(1) NOT NULL,
           `notes` text NOT NULL,
           `usr_id` int(11) NOT NULL,
-          `prg_id` int(11) NOT NULL, 
+          `prg_id` int(11) NOT NULL,
           FOREIGN KEY(prg_id) REFERENCES Progression(id),
           FOREIGN KEY(usr_id) REFERENCES User(id)
         );
@@ -83,7 +83,7 @@ SQL;
 
     echo "Inserting users into User table <br>";
     $sql = <<<SQL
-            INSERT INTO User (id, username, password, email) 
+            INSERT INTO User (id, username, password, email)
             VALUES (1, "makiator", "123", "m@n.com");
 SQL;
     $db->exec($sql);
@@ -118,7 +118,7 @@ SQL;
     }
 
     $stmt = $db->query("SELECT * FROM `Progression`");
-     
+
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         echo "<br>";
         echo $row['id'].' '.$row['name'].' '; //etc...
@@ -130,7 +130,7 @@ SQL;
         Progression.name, ExerciseSession.notes FROM ExerciseSession INNER JOIN
         Progression ON ExerciseSession.prg_id=Progression.id;"
     );
-     
+
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         echo "<br>";
         echo $row['id'].' '.$row['prg_id'].' '.$row['name'].' '.$row['notes'];
@@ -142,8 +142,8 @@ catch(PDOException $e) {
 
 /**
  * Parses ./progression.json return array of progressions
- * 
- * @return progressions array|null 
+ *
+ * @return progressions array|null
  * @author Marijan Svalina
  **/
 function parseProgression()
@@ -161,7 +161,7 @@ function parseProgression()
     }
 
     $progressions = array();
-    
+
     /**
      * Assumption: ./progression.json is an unorderd list of objects
      * (progression types) with an ordered list of objects in which there at
@@ -176,7 +176,7 @@ function parseProgression()
         $type = $prgTypeName;
         foreach ($prgTypeVal as $prgPropertiesArray) {
             /* Setting description, goal, media to default values so they can be */
-            /* left out in ./progression.json */ 
+            /* left out in ./progression.json */
             $description = null;
             $goal = 888;
             $media = null;
@@ -211,10 +211,10 @@ function parseProgression()
                 }
             }
             $prg = array (
-                "type" => $type, 
-                "name" => $name, 
-                "position" => $position, 
-                "description" => $description, 
+                "type" => $type,
+                "name" => $name,
+                "position" => $position,
+                "description" => $description,
                 "goal" => $goal,
                 "custom" => $custom,
                 "media" => $media
@@ -226,8 +226,8 @@ function parseProgression()
 }
 
 /**
- * Parse ./exercise-session.json 
- * 
+ * Parse ./exercise-session.json
+ *
  * @return $exSessions array|null
  * @author Marijan Svalina
  **/
@@ -242,10 +242,10 @@ function parseExerciseSession()
     $exSessionsJson = json_decode("$file", true);
     if ($exSessionsJson == null) {
         echo "json_decode failed <br>";
-        return; 
+        return;
     }
     $exSessions = array();
-    
+
     /**
      * Assumption: ./exercise-session.json is an unorderd list of objects
      * with these key/value pairs:
@@ -268,7 +268,7 @@ function parseExerciseSession()
                 break;
             case 'prg_id':
                 $prg_id = $exSessionVal;
-                break; 
+                break;
             case 'usr_id':
                 $usr_id = $exSessionVal;
                 break;
@@ -293,10 +293,10 @@ function parseExerciseSession()
             }
         }
         $exSes = array (
-            "datetime" => $datetime, 
-            "prg_id" => $prg_id, 
-            "usr_id" => $usr_id, 
-            "goal" => $goal, 
+            "datetime" => $datetime,
+            "prg_id" => $prg_id,
+            "usr_id" => $usr_id,
+            "goal" => $goal,
             "performed" => $performed,
             "repeat" => $repeat,
             "next" => $next,

@@ -16,7 +16,7 @@ class Startbwtracker
     protected $params = [];
 
     /**
-     * @param mixed 
+     * @param mixed
      */
     public function __construct($match)
     {
