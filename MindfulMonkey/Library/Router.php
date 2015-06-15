@@ -1,11 +1,21 @@
 <?php
+/**
+ * Definition of Router class
+ *
+ * PHP version 5.4 and above
+ *
+ * @package   Startbwtracker
+ * @author    Marijan Svalina <marijan.svalina@gmail.com>
+ * @copyright 2015 Marijan Svalina
+ * @license   http://opensource.org/licenses/MIT MIT
+ */
 
 namespace MindfulMonkey\Library;
 
 /**
- * Simple REST router
+ * Simple HTTP method and URL router
  *
- * @package    MindfulMonkey
+ * @package    Startbwtracker
  * @subpackage Library
  */
 class Router
@@ -13,6 +23,11 @@ class Router
     protected $routes = array();
     protected $baseName = null;
 
+    /**
+     * Router constructor
+     *
+     * @return void
+     */
     public function __construct()
     {
         echo "My fancy router instance<br>";
@@ -20,8 +35,13 @@ class Router
     }
 
     /**
-     * Map url routes to controller and action 
+     * Map URL routes to controller and action 
      *
+     * @param string $method  HTTP method
+     * @param string $pattern regex pattern that uniquely identifies $target
+     * @param string $target  controller and action in form of
+     *                        controller#action
+     * 
      * @return void
      */
     public function map($method, $pattern, $target)
@@ -34,11 +54,10 @@ class Router
 
         array_push($this->routes, $route);
 
-        return null;
     }
 
     /**
-     * Match incomig url request with mapped routes
+     * Match incomig URL request with mapped routes
      * 
      * @return array target with target and regex named subpatterns
      */
@@ -91,9 +110,11 @@ class Router
     }
 
     /**
-     * setBase
+     * Set base name of URL which will be truncated
+     *
+     * @param string $name base name
+     *
      * @return void
-     * @author Marijan Svalina
      **/
     public function setBase($name)
     {
