@@ -14,13 +14,20 @@
  */
 
 
-$servername = "localhost";
-$username = "root";
-$password = "mantis5c";
-$database = "startbwtracker";
+if (getenv("OPENSHIFT_MYSQL_DB_HOST") === false) {
+    $host = "localhost";
+    $username = "root";
+    $password = "mantis5c";
+    $database = "startbwtracker";
+} else {
+    $host = getenv("OPENSHIFT_MYSQL_DB_HOST");
+    $username = getenv("OPENSHIFT_MYSQL_DB_USERNAME");
+    $password = getenv("OPENSHIFT_MYSQL_DB_PASSWORD");
+    $database = "startbwtracker";
+}
 
 try {
-    $db = new PDO("mysql:host=$servername;", $username, $password);
+    $db = new PDO("mysql:host=$host;", $username, $password);
     // set the PDO error mode to exception
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $sql = "DROP DATABASE IF EXISTS $database; CREATE DATABASE $database;";
