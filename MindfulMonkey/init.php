@@ -1,9 +1,20 @@
 <?php
+/**
+ * Initial application configuration, autoloading and routing logic
+ *
+ * PHP version 5.4 and above
+ *
+ * @package   Startbwtracker
+ * @author    Marijan Svalina <marijan.svalina@gmail.com>
+ * @copyright 2015 Marijan Svalina
+ * @license   http://opensource.org/licenses/MIT MIT
+ */
 
 require_once 'autoload.php';
 
 use \MindfulMonkey\Startbwtracker;
 use \MindfulMonkey\Library\Router;
+use \MindfulMonkey\Library\Helper;
 
 $router = new Router();
 
@@ -19,11 +30,11 @@ $router->map('GET', '~^/progression/new/?$~', 'progression#new');
 $router->map('POST', '~^/progression/?$~', 'progression#create');
 // Display specific progression
 $router->map('GET', '~^/progression/(?P<prg_id>\d+)/?$~', 'progression#show');
-/* // Return HTML form for editing a specific progression */
+// Return HTML form for editing a specific progression
 $router->map('GET', '~^/progression/(?P<prg_id>\d+)/edit/?$~', 'progression#edit');
-/* // Update a specific progression */
+// Update a specific progression
 $router->map('PUT', '~^/progression/(?P<prg_id>\d+)/?$~', 'progression#update');
-/* // Delete a specific progression */
+// Delete a specific progression
 $router->map('DELETE', '~^/progression/(?P<prg_id>\d+)/?$~', 'progression#delete');
 
 // Display a list of all exercise sessions
@@ -41,8 +52,17 @@ $router->map('PUT', '~^/exercise/(?P<ex_id>\d+)/?$~', 'exercise#update');
 // Delete a specific exercise session
 $router->map('DELETE', '~^/exercise/(?P<ex_id>\d+)/?$~', 'exercise#delete');
 
-$router->setBase('~/startbwtracker~');
+// On localhost app is in DocumentRoot/startbwtracker
+if (Helper::isLocalhost()) {
+    $router->setBase('~/startbwtracker~');
+}
+
 $target = $router->match();
+
+// Set default controller and method if router did not find match
+if (empty($target)) {
+    $target = "home#index";
+}
 
 $app = new Startbwtracker\Startbwtracker($target);
 
