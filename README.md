@@ -1,6 +1,8 @@
 ## Startbwtracker is a web app for startbodyweight.com fitness routine
 
-### Instructions
+### Info
 
-* app is located at starbwtracker directory
-* dbscript directory MUST NOT be in server root folder!!!
+This is my attempt at making MVC framework, learning OOP, design patterns,
+REST, http://www.phptherightway.com/ and scratching my own itch.
+
+Progress is slow but steady :)
