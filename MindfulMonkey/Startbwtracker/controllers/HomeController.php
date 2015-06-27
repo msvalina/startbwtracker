@@ -1,6 +1,7 @@
 <?php
 /**
- *
+ * To be defined...
+ * only for static pages?!
  *
  * PHP version 5.4 and above
  *
@@ -12,20 +13,17 @@
 
 namespace MindfulMonkey\Startbwtracker\controllers;
 
-use MindfulMonkey\Library\SessionController;
+use MindfulMonkey\Library\BaseController;
 
 /**
- *
- * @package    Startbwtracker
- * @subpackage Library
+ * Class Home
+ * @author John Doe
  */
-class ExerciseController extends SessionController
+class HomeController extends BaseController
 {
     public function index()
     {
-        echo "Woot wot,, wot,,, Wot wot,";
-        echo '<br>';
-        echo '<br>';
-        echo $param;
+        echo 'home/index';
+        parent::index();
     }
 }

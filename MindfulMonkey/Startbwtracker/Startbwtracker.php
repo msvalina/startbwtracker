@@ -12,29 +12,89 @@
 
 namespace MindfulMonkey\Startbwtracker;
 
-use MindfulMonkey\Startbwtracker\controllers\ExerciseController;
-
 /**
  * Class Startbwtracker
- * @author Marijan Svalina
+ *
+ * @package Startbwtracker
  */
 class Startbwtracker
 {
 
-    protected $controller = 'home';
-
-    protected $view = 'index';
-
-    protected $params = [];
+    /**
+     * Parsed controller from matchedRoute
+     *
+     * @var string
+     */
+    private $_controller;
 
     /**
-     * @param mixed
+     * Parsed method from matchedRoute
+     *
+     * @var string
      */
-    public function __construct($target)
-    {
-        $sesCtrl = new ExerciseController;
-        $sesCtrl->index();
+    private $_method;
 
+    /**
+     * Array of regex named patterns from matchedRoute
+     *
+     * @var array $params
+     */
+    private $_params = [];
+
+    /**
+     * Call class methods
+     *
+     * @param array $matchedRoute passed to parseMatchedRoute
+     */
+    public function __construct($matchedRoute)
+    {
+        $this->parseMatchedRoute($matchedRoute);
+        $this->callController();
+    }
+
+    /**
+     * Parse matched array, set controller and method from target
+     *
+     * @param array $matchedRoute associative array in which first param is
+     *                            string in form of "controller#method" and rest
+     *                            are regex matched vars.
+     *
+     * @return void
+     */
+    public function parseMatchedRoute($matchedRoute)
+    {
+        $parts = explode('#', $matchedRoute["target"]);
+        $this->_controller = $parts[0];
+
+        // PHP does not support keywords like new and delete to be function
+        // names so controller methods are called newMethod and deleteMethod
+        if (($parts[1] === "new") || $parts[1] === "delete") {
+            $this->_method = $parts[1] . 'Method';
+        } else {
+            $this->_method = $parts[1];
+        }
+
+        unset($matchedRoute["target"]);
+
+        $this->_params = $matchedRoute;
+
+    }
+
+    /**
+     * Build dynamicly controller, call it and pass params to method
+     *
+     * @return void
+     */
+    public function callController()
+    {
+
+        $controller = '\\MindfulMonkey\\Startbwtracker\\controllers\\'
+                      . ucfirst($this->_controller) . 'Controller';
+
+        call_user_func_array(
+            array($controller, $this->_method),
+            array($this->_params)
+        );
     }
 
 }

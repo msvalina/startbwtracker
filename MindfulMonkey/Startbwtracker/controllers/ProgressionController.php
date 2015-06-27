@@ -19,11 +19,11 @@ use MindfulMonkey\Library\SessionController;
  * @package    Startbwtracker
  * @subpackage Library
  */
-class ExerciseController extends SessionController
+class ProgressionController extends SessionController
 {
     public function index()
     {
-        echo "Woot wot,, wot,,, Wot wot,";
+        echo "Woot wot,, Progression wot,";
         echo '<br>';
         echo '<br>';
         echo $param;

@@ -18,6 +18,10 @@ use \MindfulMonkey\Library\Helper;
 
 $router = new Router();
 
+/**
+ * @todo Move all route mapings to a new file
+ * @todo Transfer delimiter to routers map method
+ */
 $router->map('GET', '~^/?$~', 'home#index');
 $router->map('GET', '~/home/?$~', 'home#index');
 $router->map('GET', '~/workout/?$~', 'workout#index');
@@ -57,12 +61,11 @@ if (Helper::isLocalhost()) {
     $router->setBase('~/startbwtracker~');
 }
 
-$target = $router->match();
+$matchedRoute = $router->match();
 
 // Set default controller and method if router did not find match
-if (empty($target)) {
-    $target = "home#index";
+if (empty($matchedRoute)) {
+    $matchedRoute[target]= "home#index";
 }
 
-$app = new Startbwtracker\Startbwtracker($target);
-
+$app = new Startbwtracker\Startbwtracker($matchedRoute);

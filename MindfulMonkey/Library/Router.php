@@ -59,12 +59,12 @@ class Router
     /**
      * Match incomig URL request with mapped routes
      *
-     * @return array target with target and regex named subpatterns
+     * @return array matched with target and regex named subpatterns
      */
     public function match()
     {
         /* print_r($this->routes); */
-        $target = array();
+        $matched = array();
 
         if ($_SERVER['REQUEST_URI']) {
             echo "Searching for: <br>";
@@ -90,10 +90,10 @@ class Router
                     if ($preg_match === 1 ) {
                         echo 'this is matches <br>';
                         var_dump($matches);
-                        $target["target"] = $rt["target"];
+                        $matched["target"] = $rt["target"];
                         foreach ($matches as $key => $value) {
                             if (!is_numeric($key)) {
-                                $target[$key] = $value;
+                                $matched[$key] = $value;
                             }
                         }
                         // Exit as soon as match is found
@@ -103,10 +103,10 @@ class Router
                 echo "<br> Next match <br>";
             }
         }
-        echo '<br> dumping target <br>';
-        var_dump($target);
+        echo '<br> dumping matched <br>';
+        var_dump($matched);
 
-        return $target;
+        return $matched;
     }
 
     /**
