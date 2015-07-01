@@ -88,11 +88,17 @@ class Startbwtracker
     public function callController()
     {
 
+        // autoload loads class only when it has global path if it is build
+        // dynamicly
         $controller = '\\MindfulMonkey\\Startbwtracker\\controllers\\'
                       . ucfirst($this->_controller) . 'Controller';
 
+        // For constructors of abstract classes to be called the controller
+        // must be initiated
+        $controllerObject = new $controller;
+
         call_user_func_array(
-            array($controller, $this->_method),
+            array($controllerObject, $this->_method),
             array($this->_params)
         );
     }

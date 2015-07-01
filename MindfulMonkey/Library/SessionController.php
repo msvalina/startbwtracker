@@ -1,6 +1,6 @@
 <?php
 /**
- * Common functions for all controller that need session
+ * Common functions for all controllers that need session
  *
  * PHP version 5.4 and above
  *
@@ -18,14 +18,18 @@ namespace MindfulMonkey\Library;
  * @package    Startbwtracker
  * @subpackage Library
  */
+
 abstract class SessionController extends BaseController
 {
     /**
-     *
+     * Actions that need to be executed for all methods
      */
     public function __construct()
     {
+        // Call BaseController's constructor
+        parent::__construct();
         session_start();
+        echo "sesssioooon controller <br>";
     }
 
 

@@ -20,6 +20,10 @@ namespace MindfulMonkey\Library;
  */
 abstract class BaseController
 {
+    public function __construct()
+    {
+        echo 'Testing BaseController constructor <br>';
+    }
     public function index()
     {
         echo "<br> abstracted index";
