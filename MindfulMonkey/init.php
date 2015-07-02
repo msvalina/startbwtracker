@@ -32,8 +32,11 @@ $router->map('GET', '~^/progression/?$~', 'progression#index');
 $router->map('GET', '~^/progression/new/?$~', 'progression#new');
 // Create a new progression
 $router->map('POST', '~^/progression/?$~', 'progression#create');
-// Display specific progression
-$router->map('GET', '~^/progression/(?P<prg_id>\d+)/?$~', 'progression#show');
+// Display specific progression match it either by id or name
+$router->map(
+    'GET', '~^/progression/(?P<prg_id>\d+)|(?P<prg_name>[\w ]+)/?$~',
+    'progression#show'
+);
 // Return HTML form for editing a specific progression
 $router->map('GET', '~^/progression/(?P<prg_id>\d+)/edit/?$~', 'progression#edit');
 // Update a specific progression

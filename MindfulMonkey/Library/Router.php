@@ -70,6 +70,9 @@ class Router
             echo "Searching for: <br>";
             var_dump($_SERVER['REQUEST_URI']);
             $uri = $_SERVER['REQUEST_URI'];
+            // Decodes any %## encoding in the given string. Plus symbols ('+')
+            // are decoded to a space character.
+            $uri = urldecode($uri);
             echo "<br>";
             if (!$this->baseName == null) {
                 $uri = preg_replace($this->baseName, '', $uri);
