@@ -12,6 +12,8 @@
 
 namespace MindfulMonkey\Library;
 
+use MindfulMonkey\Library\Database;
+
 /**
  * Abstract class BaseController
  *
@@ -20,6 +22,7 @@ namespace MindfulMonkey\Library;
  */
 abstract class BaseController
 {
+
     /**
      * Controllers constructor
      *

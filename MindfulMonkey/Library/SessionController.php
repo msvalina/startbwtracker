@@ -28,6 +28,7 @@ abstract class SessionController extends BaseController
     {
         // Call BaseController's constructor
         parent::__construct();
+        echo "starting session <br>";
         session_start();
         echo "sesssioooon controller <br>";
     }
